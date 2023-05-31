@@ -13,9 +13,20 @@ box-element{
 	padding: 10px;
 }
 
-#cart-icon{
-	width:30px;
-    height: 30px;
+#basket-icon{
+	width:35px;
+    height: 35px;
 	display: inline-block;
 	margin-left: 10px;
+}
+
+#basket-total{
+	display: block;
+	text-align: center;
+	color:#fff;
+	background-color: red;
+	width: 20px;
+	height: 25px;
+	border-radius: 50%;
+	font-size: 14px;
 }
