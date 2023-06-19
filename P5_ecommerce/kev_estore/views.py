@@ -1,11 +1,21 @@
 from django.shortcuts import render
 
 
-def store(request):
+def clothes(request):
 	context = {}
-	return render(request, 'kev_estore/shop.html', context)
+	return render(request, 'kev_estore/clothes.html', context)
 
-def cart(request):
+def accessories(request):
+	context = {}
+	return render(request, 'kev_estore/accessories.html', context)
+
+def clubs(request):
+	context = {}
+	return render(request, 'kev_estore/clubs.html', context)
+
+
+
+def basket(request):
 	context = {}
 	return render(request, 'kev_estore/basket.html', context)
 
