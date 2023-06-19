@@ -14,7 +14,6 @@ def clubs(request):
 	return render(request, 'kev_estore/clubs.html', context)
 
 
-
 def basket(request):
 	context = {}
 	return render(request, 'kev_estore/basket.html', context)
