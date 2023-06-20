@@ -18,9 +18,31 @@ class Product(models.Model):
 
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
-    date_ordered = models.DateTimeField(auto_now_add=True)
-    complete = models.BooleanField(default=False, null=True, blank=False)
-    transaction_id = models.CharField(max_length=10, null=True)
+    order_date = models.DateTimeField(auto_now_add=True)
+    done = models.BooleanField(default=False, null=True, blank=False)
+    order_id = models.CharField(max_length=10, null=True)
 
     def __str__(self):
         return str(self.id)
+
+class Item(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+    quantity = models.IntegerField(default=0, null=True, blank=True)
+    add_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return (self.Product.name)
+
+class DeliveryAddress(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+    address = models.CharField(max_length=100, null=True)
+    city = models.CharField(max_length=100, null=True)
+    county = models.CharField(max_length=100, null=True)
+    country = models.CharField(max_length=100, null=True)
+    post_code = models.CharField(max_length=100, null=True)
+    add_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__ (self):
+        return self.address 
