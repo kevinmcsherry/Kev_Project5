@@ -12,12 +12,12 @@ def clothes(request):
 	return render(request, 'kev_estore/clothes.html', context)
 
 def accessories(request):
-	accessories = Accessorie.objects.all()
+	accessories = Accessories.objects.all()
 	context = {'accessories':accessories}
 	return render(request, 'kev_estore/accessories.html', context)
 
 def clubs(request):
-	clubs = Club.objects.all()
+	clubs = Clubs.objects.all()
 	context = {'clubs':clubs}
 	return render(request, 'kev_estore/clubs.html', context)
 

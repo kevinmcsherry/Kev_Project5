@@ -2,20 +2,22 @@
 {% load static %}
 {% block content %}
 	<div class="row">
+		{% for clubs in clubs %}
 		<div class="col-lg-4">
 			<img class="thumbnail" src="{% static 'images/golf_clubs_black.png' %}">
 			<div class="box-element product">
-				<h6><strong>Beginner Golf Clubs</strong></h6>
+				<h6><strong>{{clubs.name}}</strong></h6>
 				<hr>
 
 				<button class="btn btn-outline-secondary add-btn"><b>Add to Basket</b></button>
 				<a class="btn btn-outline-success" href="#"><b>View</b></a>
-				<h4 style="display: inline-block; float:right; color:red""><strong>€350</strong></h4>
+				<h4 style="display: inline-block; float:right; color:red""><strong>€{{clubs.price}}</strong></h4>
 
 			</div>
+			
 		</div>
 
-		<div class="col-lg-4">
+		<!--<div class="col-lg-4">
 			<img class="thumbnail" src="{% static 'images/golf_clubs_blue.png' %}">
 			<div class="box-element product">
 				<h6><strong>Intermediate Golf Clubs</strong></h6>
@@ -80,7 +82,8 @@
 				<h4 style="display: inline-block; float:right; color:red"><strong>€600</strong></h4>
 
 			</div>
-		</div>
+		</div>-->
+		{% endfor %}
 	</div>
 
 
