@@ -7,18 +7,18 @@ def home(request):
 	return render(request, 'kev_estore/home_page.html', context)
 
 def clothes(request):
-	products = Product.objects.all()
-	context = {'products':products}
+	clothings = Clothing.objects.all()
+	context = {'clothings':clothings}
 	return render(request, 'kev_estore/clothes.html', context)
 
 def accessories(request):
-	products = Product.objects.all()
-	context = {'products':products}
+	accessories = Accessorie.objects.all()
+	context = {'accessories':accessories}
 	return render(request, 'kev_estore/accessories.html', context)
 
 def clubs(request):
-	products = Product.objects.all()
-	context = {'products':products}
+	clubs = Club.objects.all()
+	context = {'clubs':clubs}
 	return render(request, 'kev_estore/clubs.html', context)
 
 def basket(request):

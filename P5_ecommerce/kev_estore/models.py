@@ -9,7 +9,21 @@ class Customer(models.Model):
     def __str__(self):
         return self.name
 
-class Product(models.Model):
+class Clothing(models.Model):
+    name = models.CharField(max_length=100, null=True)
+    price = models.FloatField()
+
+    def __str__(self):
+        return self.name
+
+class Accessories(models.Model):
+    name = models.CharField(max_length=100, null=True)
+    price = models.FloatField()
+
+    def __str__(self):
+        return self.name
+
+class Clubs(models.Model):
     name = models.CharField(max_length=100, null=True)
     price = models.FloatField()
 
@@ -26,13 +40,13 @@ class Order(models.Model):
         return str(self.id)
 
 class Item(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    clothing = models.ForeignKey(Clothing, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
     add_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return (self.Product.name)
+        return (self.Clothing.name)
 
 class DeliveryAddress(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
