@@ -1,18 +1,25 @@
 from django.shortcuts import render
+from .models import *
 
+
+def home(request):
+	context = {}
+	return render(request, 'kev_estore/home_page.html', context)
 
 def clothes(request):
-	context = {}
+	products = Product.objects.all()
+	context = {'products':products}
 	return render(request, 'kev_estore/clothes.html', context)
 
 def accessories(request):
-	context = {}
+	products = Product.objects.all()
+	context = {'products':products}
 	return render(request, 'kev_estore/accessories.html', context)
 
 def clubs(request):
-	context = {}
+	products = Product.objects.all()
+	context = {'products':products}
 	return render(request, 'kev_estore/clubs.html', context)
-
 
 def basket(request):
 	context = {}

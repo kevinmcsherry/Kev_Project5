@@ -3,7 +3,7 @@ body{
 }
 
 h1,h2,h3,h4,h5,h6{
-	color:hsl(0, 0%, 30%);
+	color: green;
 }
 
 .box-element{
@@ -59,6 +59,19 @@ h1,h2,h3,h4,h5,h6{
 .btn{
 	border-radius: 0;
 }
+
+.shop-button{
+	border-radius: 0;
+	color:red;
+	animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+	50% {
+	  opacity: 0;
+	}
+  }
+
 
 .row-image{
 	width: 100px;

@@ -1,0 +1,31 @@
+{% extends 'kev_estore/main.html' %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-7 col-md-10 my-auto">
+                <h1 class="display-4 logo-font">
+                    <p>Welcome to Golf Gear!</p>
+                    We stock the newest and best valued golf clothing,
+                    accessories and clubs on the market!
+                    <br>
+                    <p>Our newest gear has arrived!</p>
+                </h1>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'clothes' %}" class="shop-button btn btn-lg rounded-0 text-uppercase py-3">Check it out Now!</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
