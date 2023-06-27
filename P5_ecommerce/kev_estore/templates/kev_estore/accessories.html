@@ -4,14 +4,14 @@
 	<div class="row">
 		{% for accessorie in accessories %}
 		<div class="col-lg-4">
-			<img class="thumbnail" src="{% static 'images/golf_tees.jpeg' %}">
+			<img class="thumbnail" src="{{accessorie.image.url}}">
 			<div class="box-element product">
 				<h6><strong>{{accessorie.name}}</strong></h6>
 				<hr>
 
 				<button class="btn btn-outline-secondary add-btn"><b>Add to Basket</b></button>
 				<a class="btn btn-outline-success" href="#"><b>View</b></a>
-				<h4 style="display: inline-block; float:right; color:red""><strong>€{{accessorie.price}}</strong></h4>
+				<h4 style="display: inline-block; float:right; color:red""><strong>€{{accessorie.price|floatformat:2}}</strong></h4>
 
 			</div>
 			

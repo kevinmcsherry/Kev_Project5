@@ -105,6 +105,19 @@ h1,h2,h3,h4,h5,h6{
 	opacity: .6;
 }
 
+.notification {
+	color:black;
+	text-align: center;
+	top: 1rem;
+	animation-name: example;
+	animation-duration: 4s;
+}
+
+.card-body {
+	padding: 10px;
+	font-size: large;
+}
+
 
 .hidden{
 	display: none!important;

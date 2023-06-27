@@ -12,6 +12,7 @@ class Customer(models.Model):
 class Clothing(models.Model):
     name = models.CharField(max_length=100, null=True)
     price = models.FloatField()
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -19,6 +20,7 @@ class Clothing(models.Model):
 class Accessories(models.Model):
     name = models.CharField(max_length=100, null=True)
     price = models.FloatField()
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -26,6 +28,7 @@ class Accessories(models.Model):
 class Clubs(models.Model):
     name = models.CharField(max_length=100, null=True)
     price = models.FloatField()
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
