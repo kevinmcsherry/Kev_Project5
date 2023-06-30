@@ -6,6 +6,6 @@ admin.site.register(Clothing)
 admin.site.register(Clubs)
 admin.site.register(Accessories)
 admin.site.register(Order)
-admin.site.register(DeliveryItem)
+admin.site.register(OrderItem)
 admin.site.register(DeliveryAddress)
 
