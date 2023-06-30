@@ -67,14 +67,16 @@ class Order(models.Model):
     def __str__(self):
         return str(self.id)
 
-class Item(models.Model):
+class DeliveryItem(models.Model):
     clothing = models.ForeignKey(Clothing, on_delete=models.SET_NULL, null=True)
+    accessories = models.ForeignKey(Accessories, on_delete=models.SET_NULL, null=True)
+    clubs = models.ForeignKey(Clubs, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
     add_date = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return (self.Clothing.name)
+    def __tuple__(self):
+        return (self.clothing.name, self.accessories.name, self.clubs.name)
 
 class DeliveryAddress(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
