@@ -77,7 +77,7 @@ class OrderItem(models.Model):
 
     @property
     def get_total(self):
-        total = self.clothing.price * self.quantity
+        total = (self.clothing.price + self.clubs.price + self.accessories.price) * self.quantity
         return total
 
     #def __tuple__(self):
