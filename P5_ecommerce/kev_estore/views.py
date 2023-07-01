@@ -69,7 +69,7 @@ def basket(request):
     else:
         items = []
 
-    context ={'items':items}
+    context ={'items':items, 'order':order}
     return render(request, 'kev_estore/basket.html', context)
 
 

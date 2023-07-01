@@ -12,7 +12,7 @@ class Customer(models.Model):
 
 class Clothing(models.Model):
     name = models.CharField(max_length=100, null=True)
-    price = models.FloatField()
+    price = models.FloatField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
@@ -67,17 +67,63 @@ class Order(models.Model):
     def __str__(self):
         return str(self.id)
 
+    @property
+    def get_basket_num(self):
+        orderitems = self.orderitem_set.all()
+        total = sum([item.item_num for item in orderitems])
+        return total
+
+    @property
+    def get_basket_total(self):
+        orderitems = self.orderitem_set.all()
+        total = sum([item.get_total for item in orderitems])
+        return total
+
+    
+
 class OrderItem(models.Model):
     clothing = models.ForeignKey(Clothing, on_delete=models.SET_NULL, blank=True, null=True)
+    clothing_quantity = models.IntegerField(default=0, null=True, blank=True)
     accessories = models.ForeignKey(Accessories, on_delete=models.SET_NULL, blank=True, null=True)
+    accessories_quantity = models.IntegerField(default=0, null=True, blank=True)
     clubs = models.ForeignKey(Clubs, on_delete=models.SET_NULL, blank=True, null=True)
+    clubs_quantity = models.IntegerField(default=0, null=True, blank=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
-    quantity = models.IntegerField(default=0, null=True, blank=True)
     add_date = models.DateTimeField(auto_now_add=True)
 
     @property
+    def item_num(self):
+        total = (self.clothing_quantity + self.accessories_quantity + self.clubs_quantity)
+        return total
+
+    @property
+    def get_clothing_total(self):
+        if self.clothing_quantity == 0:
+            self.clothing.price = 0
+        else:
+            total = self.clothing.price
+        return total
+
+    @property
+    def get_clubs_total(self):
+        if self.clubs_quantity == 0:
+            self.clubs.price = 0
+        else:
+            total = self.clubs.price
+        return total
+
+    @property
+    def get_accessories_total(self):
+        if self.accessories_quantity == 0:
+            self.accessories.price = 0
+        else:
+            total = self.accessories.price
+        return total
+
+
+    @property
     def get_total(self):
-        total = (self.clothing.price + self.clubs.price + self.accessories.price) * self.quantity
+        total = (self.get_accessories_total + self.get_clothing_total + self.get_clubs_total)
         return total
 
     #def __tuple__(self):
