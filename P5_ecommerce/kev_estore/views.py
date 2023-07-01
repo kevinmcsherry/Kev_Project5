@@ -68,6 +68,7 @@ def basket(request):
         items = order.orderitem_set.all()
     else:
         items = []
+        order = {'get_basket_total':0, 'get_basket_num':0}
 
     context ={'items':items, 'order':order}
     return render(request, 'kev_estore/basket.html', context)

@@ -114,17 +114,17 @@ class OrderItem(models.Model):
         if self.clothing is None and self.clubs is None and self.accessories is None:
             total = 0
         elif self.clubs is None and self.accessories is None:
-            total = self.clothing.price
+            total = (self.clothing.price * self.clothing_quantity)
         elif self.accessories is None and self.clothing is None:
-            total = self.clubs.price
+            total = (self.clubs.price * self.clubs_quantity)
         elif self.clothing is None:
-            total = (self.clubs.price + self.accessories.price)
+            total = ((self.clubs.price * self.clubs_quantity) + (self.accessories.price * self.accessories_quantity))
         elif self.clubs is None:
-            total = (self.clothing.price + self.accessories.price)
+            total = ((self.clothing.price * self.clothing_quantity) + (self.accessories.price * self.accessories_quantity))
         elif self.accessories is None:
-            total = (self.clubs.price + self.clothing.price)
+            total = ((self.clubs.price * self.clubs_quantity) + (self.clothing.price * self.clothing_quantity))
         else:
-            total = (self.clubs.price + self.clothing.price + self.accessories.price)
+            total = ((self.clubs.price * self.clubs_quantity) + (self.clothing.price * self.clothing_quantity) + (self.accessories.price * self.accessories_quantity))
         return total
 
     #def __tuple__(self):
