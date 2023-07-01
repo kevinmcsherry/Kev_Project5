@@ -93,37 +93,38 @@ class OrderItem(models.Model):
 
     @property
     def item_num(self):
-        total = (self.clothing_quantity + self.accessories_quantity + self.clubs_quantity)
-        return total
-
-    @property
-    def get_clothing_total(self):
-        if self.clothing_quantity == 0:
-            self.clothing.price = 0
+        if self.clothing is None and self.clubs is None and self.accessories is None:
+            total = 0
+        elif self.clubs is None and self.accessories is None:
+            total = self.clothing_quantity
+        elif self.accessories is None and self.clothing is None:
+            total = self.clubs_quantity
+        elif self.clothing is None:
+            total = (self.clubs_quantity + self.accessories_quantity)
+        elif self.clubs is None:
+            total = (self.clothing_quantity + self.accessories_quantity)
+        elif self.accessories is None:
+            total = (self.clubs_quantity + self.clothing_quantity)
         else:
-            total = self.clothing.price
+            total = (self.clubs_quantity + self.clothing_quantity + self.accessories_quantity)
         return total
-
-    @property
-    def get_clubs_total(self):
-        if self.clubs_quantity == 0:
-            self.clubs.price = 0
-        else:
-            total = self.clubs.price
-        return total
-
-    @property
-    def get_accessories_total(self):
-        if self.accessories_quantity == 0:
-            self.accessories.price = 0
-        else:
-            total = self.accessories.price
-        return total
-
 
     @property
     def get_total(self):
-        total = (self.get_accessories_total + self.get_clothing_total + self.get_clubs_total)
+        if self.clothing is None and self.clubs is None and self.accessories is None:
+            total = 0
+        elif self.clubs is None and self.accessories is None:
+            total = self.clothing.price
+        elif self.accessories is None and self.clothing is None:
+            total = self.clubs.price
+        elif self.clothing is None:
+            total = (self.clubs.price + self.accessories.price)
+        elif self.clubs is None:
+            total = (self.clothing.price + self.accessories.price)
+        elif self.accessories is None:
+            total = (self.clubs.price + self.clothing.price)
+        else:
+            total = (self.clubs.price + self.clothing.price + self.accessories.price)
         return total
 
     #def __tuple__(self):
