@@ -11,10 +11,9 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     path('create-account/', CreateAccount.as_view(), name='create_account'),
 	path('', views.home, name="home"),
+	path('checkout/', views.checkout, name="checkout"),
 	path('clothes/', views.clothes, name="clothes"),
 	path('accessories/', views.accessories, name="accessories"),
 	path('clubs/', views.clubs, name="clubs"),
 	path('basket/', views.basket, name="basket"),
-	path('checkout/', views.checkout, name="checkout"),
-
 ]

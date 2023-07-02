@@ -75,5 +75,13 @@ def basket(request):
 
 
 def checkout(request):
-	context = {}
-	return render(request, 'kev_estore/checkout.html', context)
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, done=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+        order = {'get_basket_total':0, 'get_basket_num':0}
+
+    context ={'items':items, 'order':order}
+    return render(request, 'kev_estore/checkout.html', context)
