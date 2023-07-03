@@ -9,7 +9,7 @@
 				<h6><strong>{{clothing.name}}</strong></h6>
 				<hr>
 
-				<button  class="btn btn-outline-secondary add-btn"><b>Add to Basket</b></button>
+				<button data-clothes="{{clothing.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-basket"><b>Add to Basket</b></button>
 				<a class="btn btn-outline-success" href="#"><b>View</b></a>
 				<h4 style="display: inline-block; float:right; color:red""><strong>€{{clothing.price|floatformat:2}}</strong></h4>
 
