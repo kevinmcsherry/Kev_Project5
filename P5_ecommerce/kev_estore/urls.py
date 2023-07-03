@@ -17,3 +17,5 @@ urlpatterns = [
 	path('clubs/', views.clubs, name="clubs"),
 	path('basket/', views.basket, name="basket"),
 ]
+
+handler404 = "kev_estore.views.page_404"
