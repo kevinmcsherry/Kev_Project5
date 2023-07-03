@@ -87,5 +87,5 @@ def checkout(request):
     return render(request, 'kev_estore/checkout.html', context)
 
 
-def page_404(request, exception):
-    return render(request, 'kev_estore/page_not_found.html', context)
+def page_not_found(request, exception):
+    return render(request, 'kev_estore/page_not_found.html', status=404)

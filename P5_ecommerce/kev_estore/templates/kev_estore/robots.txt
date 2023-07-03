@@ -1,0 +1,3 @@
+User-Agent: Googlebot
+Disallow: https://8000-kevinmcsher-kevproject5-5okg2fwzs1g.ws-eu101.gitpod.io/basket/
+Disallow: https://8000-kevinmcsher-kevproject5-5okg2fwzs1g.ws-eu101.gitpod.io/checkout/

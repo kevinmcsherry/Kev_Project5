@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import CreateAccount
 from .views import Login
+from .views import page_not_found
 from django.contrib.auth.views import LogoutView
 
 from . import views
@@ -18,4 +19,4 @@ urlpatterns = [
 	path('basket/', views.basket, name="basket"),
 ]
 
-handler404 = "kev_estore.views.page_404"
+handler404 = "kev_estore.views.page_not_found"
