@@ -8,6 +8,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.contrib.auth import login
 from .models import *
+from django.http import JsonResponse
+import json
 
 # Create your views here.
 
@@ -45,20 +47,20 @@ def home(request):
 	context = {}
 	return render(request, 'kev_estore/home_page.html', context)
 
-def clothes(request):
-	clothings = Clothing.objects.all()
-	context = {'clothings':clothings}
-	return render(request, 'kev_estore/clothes.html', context)
+def golfgear(request):
+	golfgears = GolfGear.objects.all()
+	context = {'golfgears':golfgears}
+	return render(request, 'kev_estore/golfgear.html', context)
 
-def accessories(request):
-	accessories = Accessories.objects.all()
-	context = {'accessories':accessories}
-	return render(request, 'kev_estore/accessories.html', context)
+#def accessories(request):
+	#accessories = Accessories.objects.all()
+	#context = {'accessories':accessories}
+	#return render(request, 'kev_estore/accessories.html', context)
 
-def clubs(request):
-	clubs = Clubs.objects.all()
-	context = {'clubs':clubs}
-	return render(request, 'kev_estore/clubs.html', context)
+#def clubs(request):
+	#clubs = Clubs.objects.all()
+	#context = {'clubs':clubs}
+	#return render(request, 'kev_estore/clubs.html', context)
 
 def basket(request):
 
@@ -89,3 +91,28 @@ def checkout(request):
 
 def page_not_found(request, exception):
     return render(request, 'kev_estore/page_not_found.html', status=404)
+
+def updateItem(request):
+    data = json.loads(request.body)
+    golfgearId = data['golfgearId']
+    action = data['action']
+    print('Action', action)
+    print('golfgearId', golfgearId)
+
+    customer = request.user.customer
+    golfgear = GolfGear.objects.get(id=golfgearId)
+    order, created = Order.objects.get_or_create(customer=customer, done=False)
+
+    orderItem, created = OrderItem.objects.get_or_create(order=order, golfgear=golfgear)
+
+    if action == 'add':
+        orderItem.quantity = (orderItem.quantity +1)
+    elif action == 'remove':
+        orderItem.quantity = (orderItem.quantity -1)
+
+    orderItem.save()
+
+    if orderItem.quantity <=0:
+        orderItem.delete()
+
+    return JsonResponse('Item was added', safe=False)

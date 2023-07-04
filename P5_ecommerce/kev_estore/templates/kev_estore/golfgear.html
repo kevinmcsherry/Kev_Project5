@@ -2,16 +2,16 @@
 {% load static %}
 {% block content %}
 	<div class="row">
-		{% for clothing in clothings %}
+		{% for golfgear in golfgears %}
 		<div class="col-lg-4">
-			<img class="thumbnail" src="{{clothing.imageURL}}">
+			<img class="thumbnail" src="{{golfgear.imageURL}}">
 			<div class="box-element product">
-				<h6><strong>{{clothing.name}}</strong></h6>
+				<h6><strong>{{golfgear.name}}</strong></h6>
 				<hr>
 
-				<button data-clothes="{{clothing.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-basket"><b>Add to Basket</b></button>
+				<button data-golfgear="{{golfgear.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-basket"><b>Add to Basket</b></button>
 				<a class="btn btn-outline-success" href="#"><b>View</b></a>
-				<h4 style="display: inline-block; float:right; color:red""><strong>€{{clothing.price|floatformat:2}}</strong></h4>
+				<h4 style="display: inline-block; float:right; color:red""><strong>€{{golfgear.price|floatformat:2}}</strong></h4>
 
 			</div>
 		

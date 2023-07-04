@@ -12,6 +12,23 @@
 
 	<script type="text/javascript">
 		var user = '{{request.user}}'
+
+		function getToken(name) {
+		var cookieValue = null;
+		if (document.cookie && document.cookie !== '') {
+		    var cookies = document.cookie.split(';');
+		    for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getToken('csrftoken')
 	</script>
 	
 </head>
@@ -26,15 +43,8 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="{% url 'clothes' %}"><b>Clothing</b> <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="{% url 'golfgear' %}"><b>Golf Products</b> <span class="sr-only">(current)</span></a>
 	      </li>
-		  <li class="nav-item active">
-	        <a class="nav-link" href="{% url 'accessories' %}"><b>Accessories</b> <span class="sr-only">(current)</span></a>
-	      </li>
-		  <li class="nav-item active">
-	        <a class="nav-link" href="{% url 'clubs' %}"><b>Clubs</b> <span class="sr-only">(current)</span></a>
-	      </li>
-		  
 	 
 	    </ul>
 	    <div class="form-inline my-2 my-lg-0">
