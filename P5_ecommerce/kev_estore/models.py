@@ -38,7 +38,7 @@ class Order(models.Model):
     @property
     def get_basket_num(self):
         orderitems = self.orderitem_set.all()
-        total = sum([item.item_num for item in orderitems])
+        total = sum([item.quantity for item in orderitems])
         return total
 
     @property
@@ -54,43 +54,10 @@ class OrderItem(models.Model):
     add_date = models.DateTimeField(auto_now_add=True)
 
     @property
-    def item_num(self):
-        if self.clothing is None and self.clubs is None and self.accessories is None:
-           total = 0
-        elif self.clubs is None and self.accessories is None:
-            total = self.clothing_quantity
-        elif self.accessories is None and self.clothing is None:
-            total = self.clubs_quantity
-        elif self.clothing is None:
-            total = (self.clubs_quantity + self.accessories_quantity)
-        elif self.clubs is None:
-            total = (self.clothing_quantity + self.accessories_quantity)
-        elif self.accessories is None:
-            total = (self.clubs_quantity + self.clothing_quantity)
-        else:
-            total = (self.clubs_quantity + self.clothing_quantity + self.accessories_quantity)
-        return total
-
-    @property
     def get_total(self):
-        if self.clothing is None and self.clubs is None and self.accessories is None:
-            total = 0
-        elif self.clubs is None and self.accessories is None:
-            total = (self.clothing.price * self.clothing_quantity)
-        elif self.accessories is None and self.clothing is None:
-            total = (self.clubs.price * self.clubs_quantity)
-        elif self.clothing is None:
-            total = ((self.clubs.price * self.clubs_quantity) + (self.accessories.price * self.accessories_quantity))
-        elif self.clubs is None:
-            total = ((self.clothing.price * self.clothing_quantity) + (self.accessories.price * self.accessories_quantity))
-        elif self.accessories is None:
-            total = ((self.clubs.price * self.clubs_quantity) + (self.clothing.price * self.clothing_quantity))
-        else:
-            total = ((self.clubs.price * self.clubs_quantity) + (self.clothing.price * self.clothing_quantity) + (self.accessories.price * self.accessories_quantity))
-        return total
+		    total = self.golfgear.price * self.quantity
+		    return total
 
-    #def __tuple__(self):
-        #return (self.clothing.name, self.accessories.name, self.clubs.name)
 
 class DeliveryAddress(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)

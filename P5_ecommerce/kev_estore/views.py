@@ -14,7 +14,7 @@ import json
 # Create your views here.
 
 class Login(SuccessMessageMixin, LoginView):
-    template_name = 'shop_app/login.html'
+    template_name = 'kev_estore/login.html'
     fields = '__all__'
     redirect_authenticated_user = True
     success_message = "Login Successful"
@@ -24,7 +24,7 @@ class Login(SuccessMessageMixin, LoginView):
         
 
 class CreateAccount(SuccessMessageMixin, FormView):
-    template_name = 'shop_app/create_account.html'
+    template_name = 'kev_estore/create_account.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
     success_message = "Account Created Successfully"

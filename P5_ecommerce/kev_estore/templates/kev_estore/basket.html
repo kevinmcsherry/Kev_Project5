@@ -33,21 +33,21 @@
 				
 				{% for item in items %}
 				<div class="basket-row">
-					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}">
+					<div style="flex:2"><img class="row-image" src="{{item.golfgear.imageURL}}">
 					</div>
-					<div style="flex:2"><p>{{item.product.name}}
+					<div style="flex:2"><p>{{item.golfgear.name}}
 					</div>
-					<div style="flex:1"><p>€{{item.product.price|floatformat:2}}
+					<div style="flex:1"><p>€{{item.golfgear.price|floatformat:2}}
 					</div>
 					<div style="flex:1">
-						<p class="quantity">{{item.item_num}}</p>
+						<p class="quantity">{{item.quantity}}</p>
 						<div class="quantity">
 							<img class="chg-quantity" src="{% static  'images/arrow_up.png' %}">
 					
 							<img class="chg-quantity" src="{% static  'images/arrow_down.png' %}">
 						</div>
 					</div>
-					<div style="flex:1"><p>€{{order.get_basket_total|floatformat:2}}</p></div>
+					<div style="flex:1"><p>€{{item.get_total|floatformat:2}}</p></div>
 				</div>
 				{% endfor %}
 			</div>
