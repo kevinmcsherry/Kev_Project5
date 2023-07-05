@@ -52,10 +52,11 @@ def golfgear(request):
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, done=False)
+        items = order.orderitem_set.all()
         basketItems = order.get_basket_num
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_num':0}
+        order = {'get_basket_total':0, 'get_basket_num':0, 'shipping':False}
         basketItems = ['get_basket_num']
     
     golfgears = GolfGear.objects.all()
@@ -81,7 +82,7 @@ def basket(request):
         basketItems = order.get_basket_num
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_num':0}
+        order = {'get_basket_total':0, 'get_basket_num':0, 'shipping':False}
         basketItems = ['get_basket_num']
 
     context ={'items':items, 'order':order, 'basketItems':basketItems}
@@ -96,7 +97,7 @@ def checkout(request):
         basketItems = order.get_basket_num
     else:
         items = []
-        order = {'get_basket_total':0, 'get_basket_num':0}
+        order = {'get_basket_total':0, 'get_basket_num':0, 'shipping':False}
         basketItems = ['get_basket_num']
 
     context ={'items':items, 'order':order, 'basketItems':basketItems}

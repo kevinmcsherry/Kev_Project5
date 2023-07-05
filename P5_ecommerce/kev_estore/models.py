@@ -36,6 +36,13 @@ class Order(models.Model):
         return str(self.id)
 
     @property
+    def shipping(self):
+        shipping = True
+        orderitems = self.orderitem_set.all()
+        return shipping
+
+
+    @property
     def get_basket_num(self):
         orderitems = self.orderitem_set.all()
         total = sum([item.quantity for item in orderitems])
