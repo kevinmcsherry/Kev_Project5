@@ -48,9 +48,19 @@ def home(request):
 	return render(request, 'kev_estore/home_page.html', context)
 
 def golfgear(request):
-	golfgears = GolfGear.objects.all()
-	context = {'golfgears':golfgears}
-	return render(request, 'kev_estore/golfgear.html', context)
+
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, done=False)
+        basketItems = order.get_basket_num
+    else:
+        items = []
+        order = {'get_basket_total':0, 'get_basket_num':0}
+        basketItems = ['get_basket_num']
+    
+    golfgears = GolfGear.objects.all()
+    context = {'golfgears':golfgears, 'basketItems':basketItems}
+    return render(request, 'kev_estore/golfgear.html', context)
 
 #def accessories(request):
 	#accessories = Accessories.objects.all()
@@ -68,11 +78,13 @@ def basket(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, done=False)
         items = order.orderitem_set.all()
+        basketItems = order.get_basket_num
     else:
         items = []
         order = {'get_basket_total':0, 'get_basket_num':0}
+        basketItems = ['get_basket_num']
 
-    context ={'items':items, 'order':order}
+    context ={'items':items, 'order':order, 'basketItems':basketItems}
     return render(request, 'kev_estore/basket.html', context)
 
 
@@ -81,11 +93,13 @@ def checkout(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, done=False)
         items = order.orderitem_set.all()
+        basketItems = order.get_basket_num
     else:
         items = []
         order = {'get_basket_total':0, 'get_basket_num':0}
+        basketItems = ['get_basket_num']
 
-    context ={'items':items, 'order':order}
+    context ={'items':items, 'order':order, 'basketItems':basketItems}
     return render(request, 'kev_estore/checkout.html', context)
 
 
