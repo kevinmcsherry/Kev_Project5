@@ -57,7 +57,7 @@ def golfgear(request):
     else:
         items = []
         order = {'get_basket_total':0, 'get_basket_num':0, 'shipping':False}
-        basketItems = ['get_basket_num']
+        basketItems = order['get_basket_num']
     
     golfgears = GolfGear.objects.all()
     context = {'golfgears':golfgears, 'basketItems':basketItems}
@@ -83,7 +83,7 @@ def basket(request):
     else:
         items = []
         order = {'get_basket_total':0, 'get_basket_num':0, 'shipping':False}
-        basketItems = ['get_basket_num']
+        basketItems = order['get_basket_num']
 
     context ={'items':items, 'order':order, 'basketItems':basketItems}
     return render(request, 'kev_estore/basket.html', context)
@@ -98,7 +98,7 @@ def checkout(request):
     else:
         items = []
         order = {'get_basket_total':0, 'get_basket_num':0, 'shipping':False}
-        basketItems = ['get_basket_num']
+        basketItems = order['get_basket_num']
 
     context ={'items':items, 'order':order, 'basketItems':basketItems}
     return render(request, 'kev_estore/checkout.html', context)
