@@ -17,7 +17,8 @@ urlpatterns = [
 	#path('accessories/', views.accessories, name="accessories"),
 	#path('clubs/', views.clubs, name="clubs"),
 	path('basket/', views.basket, name="basket"),
-	path('update_item/', views.updateItem, name="update_item")
+	path('update_item/', views.updateItem, name="update_item"),
+	path('process_order/', views.processOrder, name="process_order")
 ]
 
 handler404 = "kev_estore.views.page_not_found"

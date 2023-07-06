@@ -10,6 +10,7 @@ from django.contrib.auth import login
 from .models import *
 from django.http import JsonResponse
 import json
+import datetime
 
 # Create your views here.
 
@@ -131,3 +132,31 @@ def updateItem(request):
         orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
+
+def processOrder(request):
+    order_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+
+    if request.user.is_authenticated:
+	    customer = request.user.customer
+    order, created = Order.objects.get_or_create(customer=customer, done=False)
+    total = (data['form']['total'])
+    order.order_id = order_id
+    order.done = True
+    order.save()
+
+    if order.shipping == True:
+        DeliveryAddress.objects.create(
+        customer=customer,
+        order=order,
+        address=data['shipping']['address'],
+        city=data['shipping']['city'],
+        county=data['shipping']['county'],
+        country=data['shipping']['country'],
+        post_code=data['shipping']['postalcode'],
+        )
+
+    else:
+        print('User is not logged in')
+
+    return JsonResponse('Payment Complete!', safe=False)
