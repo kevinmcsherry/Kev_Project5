@@ -11,7 +11,6 @@ from .models import *
 from django.http import JsonResponse
 import json
 import datetime
-from .models import Customer
 
 # Create your views here.
 
@@ -19,7 +18,7 @@ class Login(SuccessMessageMixin, LoginView):
     template_name = 'kev_estore/login.html'
     fields = '__all__'
     redirect_authenticated_user = True
-    success_message = "Successful"
+    success_message = "Login Successful"
     
     def get_success_url(self):
         return reverse_lazy('golfgear')

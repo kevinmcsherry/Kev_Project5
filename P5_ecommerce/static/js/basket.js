@@ -7,35 +7,13 @@ for(var i = 0; i < updateBtns.length; i++){
         console.log('golfgearId:', golfgearId, 'action:', action) 
         console.log("USER:", user)
         if(user == 'AnonymousUser'){
-            updateGuestOrder(golfgearId, action)
+            console.log('Not Logged In')
         }else{
             updateUserOrder(golfgearId, action)
         }
     })
 }
 
-function updateGuestOrder(golfgearId, action){
-	console.log('User is not authenticated')
-
-	if (action == 'add'){
-		if (basket[golfgearId] == undefined){
-		basket[golfgearId] = {'quantity':1}
-
-		}else{
-			basket[golfgearId]['quantity'] += 1
-		}
-	}
-
-	if (action == 'remove'){
-		basket[golfgearId]['quantity'] -= 1
-
-		if (basket[golfgearId]['quantity'] <= 0){
-			console.log('Item should be deleted')
-			delete basket[golfgearId];
-		}
-	}
-    console.log('Basket:', basket)
-}
 
 function updateUserOrder(golfgearId, action){
     console.log('User is logged in, sending data..')
