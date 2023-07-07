@@ -11,6 +11,7 @@ from .models import *
 from django.http import JsonResponse
 import json
 import datetime
+from .models import Customer
 
 # Create your views here.
 
@@ -18,10 +19,10 @@ class Login(SuccessMessageMixin, LoginView):
     template_name = 'kev_estore/login.html'
     fields = '__all__'
     redirect_authenticated_user = True
-    success_message = "Login Successful"
+    success_message = "Successful"
     
     def get_success_url(self):
-        return reverse_lazy('tasks')
+        return reverse_lazy('golfgear')
         
 
 class CreateAccount(SuccessMessageMixin, FormView):
@@ -29,7 +30,7 @@ class CreateAccount(SuccessMessageMixin, FormView):
     form_class = UserCreationForm
     redirect_authenticated_user = True
     success_message = "Account Created Successfully"
-    success_url = reverse_lazy('tasks')
+    success_url = reverse_lazy('golfgear')
 
     def form_valid(self, form):
         user = form.save()
@@ -39,7 +40,7 @@ class CreateAccount(SuccessMessageMixin, FormView):
 
     def state(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('tasks')
+            return redirect('golfgear')
         return super(CreateAccount, self).get(*args, **kwargs)
 
 

@@ -109,6 +109,11 @@ h1,h2,h3,h4,h5,h6{
 	opacity: .6;
 }
 
+@keyframes example {
+	from {background-color: red;}
+	to {background-color: yellow;}
+	}
+
 .notification {
 	color:black;
 	text-align: center;
