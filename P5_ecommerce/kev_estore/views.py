@@ -27,6 +27,7 @@ class Login(SuccessMessageMixin, LoginView):
 class CreateAccount(SuccessMessageMixin, FormView):
     template_name = 'kev_estore/create_account.html'
     form_class = UserCreationForm
+    redirect_authenticated_user = True
     success_message = "Account Created Successfully"
     success_url = reverse_lazy('golfgear')
 
