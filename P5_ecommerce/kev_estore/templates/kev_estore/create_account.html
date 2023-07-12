@@ -5,11 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account Page</title>
-
-{% extends 'kev_estore/main.html' %}
-{% block content %}
-
-
+    {% extends 'kev_estore/main.html' %}
+    {% block content %}
 <header> 
 
 <div class="header-bar">
@@ -27,13 +24,13 @@
 <div class="card-body">
 <form method="POST">
     {% csrf_token %}
-    <label style="font-size: large;">{{form.username.label}}</label>
+    <label style="font-size: large;" aria-label >{{form.username.label}}</label>
     {{form.username}}
 
-    <label style="font-size: large;">{{form.password1.label}}</label>
+    <label style="font-size: large;" aria-label >{{form.password1.label}}</label>
     {{form.password1}}
 
-    <label style="font-size: large;">{{form.password2.label}}</label>
+    <label style="font-size: large;" aria-label >{{form.password2.label}}</label>
     {{form.password2}}
     
     <input style="margin-top: 10px; font-size: large; font-weight: bolder;" class="button" type="submit" value="Submit">

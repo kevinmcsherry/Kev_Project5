@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<title>Basket Page</title>
+
 {% extends 'kev_estore/main.html' %}
 {% load static %}
 {% block content %}
@@ -11,8 +19,8 @@
 				<br>
 				<table class="table">
 					<tr>
-						<th><h5>Items: <strong>{{order.get_basket_num}}</strong></h5></th>
-						<th><h5>Total: <strong>€{{order.get_basket_total|floatformat:2}}</strong></h5></th>
+						<th>Items: <strong>{{order.get_basket_num}}</strong></th>
+						<th>Total: <strong>€{{order.get_basket_total|floatformat:2}}</strong></th>
 						<th>
 							<a  style="float:right; margin:5px;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
 						</th>
@@ -33,7 +41,7 @@
 				
 				{% for item in items %}
 				<div class="basket-row">
-					<div style="flex:2"><img class="row-image" src="{{item.golfgear.imageURL}}">
+					<div style="flex:2"><img alt="Golf Gear Image"  class="row-image" src="{{item.golfgear.imageURL}}">
 					</div>
 					<div style="flex:2"><p>{{item.golfgear.name}}
 					</div>
@@ -42,9 +50,9 @@
 					<div style="flex:1">
 						<p class="quantity">{{item.quantity}}</p>
 						<div class="quantity">
-							<img data-golfgear={{item.golfgear.id}} data-action="add" class="chg-quantity update-basket" src="{% static  'images/arrow_up.png' %}">
+							<img data-golfgear={{item.golfgear.id}} data-action="add" alt="Quantity Plus" class="chg-quantity update-basket" src="{% static  'images/arrow_up.png' %}">
 					
-							<img data-golfgear={{item.golfgear.id}} data-action="remove" class="chg-quantity update-basket" src="{% static  'images/arrow_down.png' %}">
+							<img data-golfgear={{item.golfgear.id}} data-action="remove" alt="Quantity Minus" class="chg-quantity update-basket" src="{% static  'images/arrow_down.png' %}">
 						</div>
 					</div>
 					<div style="flex:1"><p>€{{item.get_total|floatformat:2}}</p></div>

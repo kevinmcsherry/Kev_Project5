@@ -1,6 +1,17 @@
-{% extends 'kev_estore/main.html' %}
-{% load static %}
-{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="description" content="Shopping List App">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1">
+	<title>Checkout</title>
+     {% extends 'kev_estore/main.html' %}
+     {% load static %}
+     {% block content %}
+
+
 <div class="row">
      <div class="col-lg-6">
           <div class="box-element" id="form-wrapper">
@@ -42,7 +53,6 @@
           <br>
           <div class="box-element hidden" id="payment-info">
 	          <small>Paypal Options</small>
-               <!--<button id='make-payment'>Pay Now!</button>-->
                <div id="paypal-button-container"></div>
           </div>
           
@@ -66,7 +76,7 @@
 
                {% for item in items %}
 				<div class="basket-row">
-					<div style="flex:2"><img class="row-image" src="{{item.golfgear.imageURL}}">
+					<div style="flex:2"><img alt="Golf Gear Image" class="row-image" src="{{item.golfgear.imageURL}}">
 					</div>
 					<div style="flex:2"><p>{{item.golfgear.name}}
 					</div>
@@ -82,7 +92,7 @@
           </div>
      </div>
 </div>
-
+</div>
 <script src="https://www.paypal.com/sdk/js?client-id=AfboF0rOczpynAvD3sitorPHfhHpbcYg2QeZIWBIW1iFnSULX23rENEzSt77P33w7eiLg9WZQd590tKb"></script>
 
 <script>
