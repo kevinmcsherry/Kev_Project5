@@ -1,39 +1,11 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Project 5 Ecommerce - Golf Gear
 
-Welcome,
+Golf Gear is a website in which all avid golfers will love!  It allows all shoppers to visit, browse, create an account and finally purchase the items they desire.
+A user will visit the site, be greeted with colourful and easy to navigate pages.  They can view all the products that are available, which range from clothing, clubs and accessories - everything a golfer needs!
+In order to purchase an item, the user must create an account, which they can do easily via an available link, and by just filling in a few details - they are ready.
+Once a user is logged in, they can then select any items in which they want to purchase... add them to thier basket and purchase...all with 4 clicks of a button and entering delivery information.
+If the logged user can not make up thier mind and wish to log off and have a think...they can do so without issue - the next time they log in, thier basket items will still be held for them!
+We accept payment via Paypal or Credit Card!
+Enjoy the Site!
 
-This is the Code Institute student template for Codeanywhere. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **May 11th, 2023**
-
-## Codeanywhere Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
-
-`python3 -m http.server`
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
-
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+![Web Page view](P5_ecommerce/static/images/GG_Home_Page.png)
