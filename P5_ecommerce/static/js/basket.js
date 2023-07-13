@@ -4,10 +4,7 @@ for(var i = 0; i < updateBtns.length; i++){
 	updateBtns[i].addEventListener('click', function(){
 		var golfgearId = this.dataset.golfgear
 		var action = this.dataset.action
-        console.log('golfgearId:', golfgearId, 'action:', action) 
-        console.log("USER:", user)
         if(user == 'AnonymousUser'){
-            console.log('Not Logged In')
         }else{
             updateUserOrder(golfgearId, action)
         }

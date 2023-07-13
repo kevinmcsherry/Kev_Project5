@@ -25,10 +25,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w66i%a3@_#yy-of3i0u-&fr*x2(*0c)#!4f+5$qdu9z5#0(s@e'
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
+#SECRET_KEY = 'django-insecure-w66i%a3@_#yy-of3i0u-&fr*x2(*0c)#!4f+5$qdu9z5#0(s@e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', False)
+# Cross-reference this debug state to set development state
+development = DEBUG
 
 ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-5okg2fwzs1g.ws-eu101.gitpod.io']
 
@@ -80,12 +84,19 @@ WSGI_APPLICATION = 'P5_ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if development:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    # The actual database we want to use for production
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+
 
 
 # Password validation

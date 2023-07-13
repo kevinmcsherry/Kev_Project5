@@ -112,8 +112,6 @@ def updateItem(request):
     data = json.loads(request.body)
     golfgearId = data['golfgearId']
     action = data['action']
-    print('Action', action)
-    print('golfgearId', golfgearId)
 
     customer = request.user.customer
     golfgear = GolfGear.objects.get(id=golfgearId)
