@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, forms
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.contrib.auth import login
@@ -12,6 +12,11 @@ from django.db import models
 from django.http import JsonResponse
 import json
 import datetime
+from django import forms
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+from .models import Customer
 
 # Create your views here.
 
@@ -36,10 +41,17 @@ class CreateAccount(SuccessMessageMixin, FormView):
     def form_valid(self, form):
         user = form.save()
         if user is not None:
-            print(user)
             login(self.request, user)
         return super(CreateAccount, self).form_valid(form)
 
+
+    @receiver(post_save, sender=User)
+    def create_or_update_customer(sender, instance, created, **kwargs):
+        """Create or update the Customer"""
+        if created:
+            cust_name = str(instance)
+            Customer.objects.create(user=instance, name=cust_name, email=cust_name + "1979@gmail.com")
+        instance.customer.save()
     
 
     def state(self, *args, **kwargs):
