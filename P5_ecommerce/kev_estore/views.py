@@ -8,6 +8,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.contrib.auth import login
 from .models import *
+from django.db import models
 from django.http import JsonResponse
 import json
 import datetime
@@ -35,8 +36,11 @@ class CreateAccount(SuccessMessageMixin, FormView):
     def form_valid(self, form):
         user = form.save()
         if user is not None:
+            print(user)
             login(self.request, user)
         return super(CreateAccount, self).form_valid(form)
+
+    
 
     def state(self, *args, **kwargs):
         if self.request.user.is_authenticated:

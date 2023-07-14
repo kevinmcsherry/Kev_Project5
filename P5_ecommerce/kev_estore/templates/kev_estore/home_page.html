@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-    <meta name="description" content="Golf Gear Site">
+    <meta name="description" content="Golfing Gear App, A website in which you will find all of the best Golf Gear including clothing, clubs and Accessories"">
+    <meta name="keywords" content="Golf, Golf Clothing, Golf Accessories, Golf CLubs">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1">
 	<title>Golf Gear Home Page</title>
@@ -26,10 +27,20 @@
                     accessories and clubs on the market!
                     <br>
                     Our newest gear has arrived!
+                    <br>
+                    <br>
+
+                    {% if request.user.is_authenticated %}
+                    {% else %}
+                    Please log in to access the site!
+                    {% endif %}
                 </h1>
                 <div class="my-5">
                     <h4>
+                        {% if request.user.is_authenticated %}
                         <a href="{% url 'golfgear' %}" class="shop-button btn btn-lg rounded-0 text-uppercase py-3">Check it out Now!</a>
+                        {% else %}
+                        {% endif %}
                     </h4>
                 </div>
             </div>

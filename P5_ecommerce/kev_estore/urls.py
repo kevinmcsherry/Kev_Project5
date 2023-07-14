@@ -3,6 +3,7 @@ from .views import CreateAccount
 from .views import Login
 from .views import page_not_found
 from django.contrib.auth.views import LogoutView
+from django.views.generic.base import TemplateView
 
 from . import views
 
@@ -18,7 +19,8 @@ urlpatterns = [
 	#path('clubs/', views.clubs, name="clubs"),
 	path('basket/', views.basket, name="basket"),
 	path('update_item/', views.updateItem, name="update_item"),
-	path('process_order/', views.processOrder, name="process_order")
+	path('process_order/', views.processOrder, name="process_order"),
+    path("robots.txt",TemplateView.as_view(template_name="main/robots.txt", content_type="text/plain")),
 ]
 
 handler404 = "kev_estore.views.page_not_found"
