@@ -62,6 +62,12 @@
 			{% else %}
 			<a href="{% url 'login' %}" class="btn btn-warning"><b>Login</b></a>
 			{% endif %}
+
+			{% if request.user.is_authenticated %}
+			<a href="{% url 'newsLetter' %}" class="btn btn-warning">Sign up!</a>
+			{% else %}
+			{% endif %}
+
 	     	
 			{% if request.user.is_authenticated %}
 	     	<a href="{% url 'basket' %}">
