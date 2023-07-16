@@ -21,7 +21,7 @@ urlpatterns = [
 	path('update_item/', views.updateItem, name="update_item"),
 	path('process_order/', views.processOrder, name="process_order"),
     path("robots.txt",TemplateView.as_view(template_name="main/robots.txt", content_type="text/plain")),
-	path('newsletter/', views.newsLetter, name='newsletter'),
+	path('newsletter/', views.newsletter, name='newsletter'),
     path('validate/', views.validate_email, name='validate_email'),
 ]
 

@@ -84,15 +84,6 @@ def golfgear(request):
     context = {'golfgears':golfgears, 'basketItems':basketItems}
     return render(request, 'kev_estore/golfgear.html', context)
 
-#def accessories(request):
-	#accessories = Accessories.objects.all()
-	#context = {'accessories':accessories}
-	#return render(request, 'kev_estore/accessories.html', context)
-
-#def clubs(request):
-	#clubs = Clubs.objects.all()
-	#context = {'clubs':clubs}
-	#return render(request, 'kev_estore/clubs.html', context)
 
 def basket(request):
 
@@ -179,7 +170,7 @@ def processOrder(request):
 
     return JsonResponse('Payment Complete!', safe=False)
 
-def newsLetter(request):
+def newsletter(request):
     if request.method == 'POST':
             post_data = request.POST.copy()
             email = post_data.get("email", None)
@@ -190,22 +181,20 @@ def newsLetter(request):
             subscribedUsers.save()
             # send a confirmation mail
             subject = 'NewsLetter Subscription'
-            message = 'Hello ' + name + ', Thanks for subscribing us. You will get notification of latest articles posted on our website. Please do not reply on this email.'
+            message = 'Thanks for subscribing us. You will get notification of latest articles posted on our website. Please do not reply on this email.'
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [email, ]
             send_mail(subject, message, email_from, recipient_list)
-            res = JsonResponse({'msg': 'Thanks. Subscribed Successfully!'})
-    #return res
     return render(request, 'newsletter.html')
 
 def validate_email(request): 
     email = request.POST.get("email", None)   
     if email is None:
-        res = JsonResponse({'msg': 'Email is required.'})
+        re = JsonResponse({'msg': 'Email is required.'})
     elif SubscribedUsers.objects.get(email = email):
-        res = JsonResponse({'msg': 'Email Address already exists'})
+        re = JsonResponse({'msg': 'Email Address already exists'})
     elif not re.match(r"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", email):
-        res = JsonResponse({'msg': 'Invalid Email Address'})
+        re = JsonResponse({'msg': 'Invalid Email Address'})
     else:
-        res = JsonResponse({'msg': ''})
-    return res
+        re = JsonResponse({'msg': 'Thank you for signing up'})
+    return re
