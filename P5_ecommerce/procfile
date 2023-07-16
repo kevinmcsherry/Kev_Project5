@@ -1,0 +1,1 @@
+web: gunicorn P5_ecommerce.wsgi:application
