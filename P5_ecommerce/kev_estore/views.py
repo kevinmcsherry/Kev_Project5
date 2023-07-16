@@ -28,7 +28,6 @@ class Login(SuccessMessageMixin, LoginView):
     template_name = 'kev_estore/login.html'
     fields = '__all__'
     redirect_authenticated_user = True
-    success_message = "Login Successful"
     
     def get_success_url(self):
         return reverse_lazy('golfgear')
@@ -38,7 +37,6 @@ class CreateAccount(SuccessMessageMixin, FormView):
     template_name = 'kev_estore/create_account.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
-    success_message = "Account Created Successfully"
     success_url = reverse_lazy('golfgear')
 
 
