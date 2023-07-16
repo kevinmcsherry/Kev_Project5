@@ -115,4 +115,29 @@ I did attempt to add this functionality, it was very complicated to decipher the
 
  - Guest functionality - I'm not sure if this is a bug neccessarily, but its certainly something that feels like its missing - a website like this should allow no registered users to utilise. 
 
+
+# Deployment
+
+- In order to deploy my project and make it available to run via a visual program, I needed to synch my GitHub project through Heroku.  I had to sign up for a new account, add credentials, link to the correct repository and add some settings to allow for seemless deployment.  One thing I made sure to do was set to automatic deploys, which meant each time I pushed through gitpod, these changes would then render to the new GUI.
+- My project is deployed via Heroku.  My live published site - https://shopping-listp4.herokuapp.com/
+- My GitHub repository is housed here - https://github.com/kevinmcsherry/P4_Shop_list 
+<br>
+
+# Golf Gear Super User
+- My Admin user Credentials for the shopping list app : - Username - Kevin  Password - AvaandMia1
+
+# Credits
+
+- I was venturing into unknown territory here with the use of Django and Boostrap etc.  I have to say that I did struggle to get to terms with it...as I find it quite different from the coding we have done in past projects.  I had to rely on a lot of the content from LMS program and the practise projects.  
+- The boutique ado project aided me in many ways, from getting started with set-up of django and framework and also the database set up.  I also used a lot of the template structures to help me with getting basic designs set up. 
+- I never rely on just one source for my help.  I did a lot of research online to see about other sources that could help me in the development of this project.  I came across some really helpful content and with a particular person on youtube called Denis Ivanov, thats content really helped.  He has tutorials online and also lots of content online which I could not have got to the stage I'm at without.  I used a lot of his content on his [website](https://www.dennisivy.com/), and a lot of his advice through his video content.
+
+# Project Summary
+- Tough!  I felt comfortable with past projects becuase I was comfortable doing a bit of coding.  I felt this took me out of my comfort zone and was a challenge bringing me back to HTML and CSS.  I have always struggled a little with designing and styling my front ends. 
+- I had a number of different ideas in which I was going to follow, which I then backtracked becuase of the potential difficulty.  I dedided to go with something that I'm passionate about, Golf!
+- My original idea was to have a different page per type of gold gear - Accessories, clothing and clubs.  It became apparent as I tried to build the basket and checkout logic that having seperate pages was going to be difficult...so I had to backtrack once again.
+- Ideally for a website, anyone should be able to purchase without signing up, but once again, I found it difficult 
+- I really wanted to come up with something much more exciting for this project deliverable, so I'm a little disapointed in the end result.  I need to put more time into learning this framework and especially back into basic web site design.
+- As part of the Agile practise, I really was keen to carry out the work in the correct cadence and flow.. what I unfortunately ended up doing was jumping into solutionising and coding first... which meant retro fitting the tasks which should have preceeded.  So not ideal. 
+- Overall, I learned a huge amount during this project..I got a real understanding of all the things I did not appreciate about the development cycle and the effort that go into it.  The planning and forward thinking was a challenge, as I just wanted to dive right in.  I also learned a lot about other frameworks and libraries that I was not aware of and surpirsed by the power that they give in relation to work that is already done and not required to be redone!
  
