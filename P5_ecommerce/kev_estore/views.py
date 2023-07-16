@@ -22,7 +22,6 @@ from django.core.mail import send_mail
 from django.conf import settings
 import re
 
-# Create your views here.
 
 class Login(SuccessMessageMixin, LoginView):
     template_name = 'kev_estore/login.html'

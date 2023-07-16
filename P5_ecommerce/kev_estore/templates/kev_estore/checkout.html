@@ -99,15 +99,9 @@
 <script>
 
 var total = '{{order.get_basket_total}}'
-// Render the PayPal button into #paypal-button-container
+
 paypal.Buttons({
 
-
-     /*style: {
-        color:  'blue',
-        shape:  'rect',
-    },
-*/
     // Set up the transaction
     createOrder: function(data, actions) {
      console.log(total)
@@ -157,10 +151,6 @@ paypal.Buttons({
           document.getElementById('payment-info').classList.remove('hidden')
      })
 
-     /*document.getElementById('make-payment').addEventListener('click', function(e){
-          submitFormData()
-     })
-     */
      function submitFormData(){
           console.log('payment button clicked')
 
