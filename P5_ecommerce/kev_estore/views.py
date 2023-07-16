@@ -182,7 +182,7 @@ def newsletter(request):
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [email, ]
             send_mail(subject, message, email_from, recipient_list)
-    return render(request, 'newsletter.html')
+    return render(request, 'kev_estore/newsletter.html')
 
 def validate_email(request): 
     email = request.POST.get("email", None)   
