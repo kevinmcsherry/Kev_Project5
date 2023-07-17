@@ -8,7 +8,7 @@ If the logged user can not make up thier mind and wish to log off and have a thi
 We accept payment via Paypal or Credit Card!
 Enjoy the Site!
 
-![Web Page view](P5_ecommerce/static/images/GG_Home_Page.png)
+![Web Page view](P5_ecommerce/static/images/gg_home_page.png)
 
 # Agile Methodology/Framework
 - A big part of this project was to think ahead and plan, design, prioritise and timebox tasks.  It was a great way to make me think about smaller chunks of work and plan out my project.
@@ -24,6 +24,10 @@ Enjoy the Site!
 - Part of the Agile design was to deisgn UI Mockups prior to coding and constructing.
 - This is a good practise to allow me to visualize how the product will look and feel and to put myself in the users shoes from a visual point of view..
 - I did mockups of all my pages (Home Page, main product page, basket, checkout) All these mockups can be found [HERE](https://drive.google.com/drive/folders/1nCceR4MK3c5pIexAGs8ByDaan0efUXiN)
+
+- I also put together a mockup of Facebook page, this would in theory be an advertising tool to get more visibility and visitors.
+![Web Page view](P5_ecommerce/static/images/golfgear_facebook.jpg)
+
 
 # Features
 
@@ -57,6 +61,10 @@ There are many features included in the shopping list application.
     - When a user adds an item from the product pages to the basket, the basket item numbers will automatically increment and will display this on the basket icon displayed on top corner of product page.
     When the user is happy that they have chosen all they want and have added to basket, they can then navigate easily to the basket where all the items chosen will be displayed along with images, descriptions, unit price and overall price of order.
     Another great feature in teh basket, id that a user can add to items...so by using an up or down arrow, the user can increase or decrease items required... the overall items will update along with overall cost of order... if the user wants to completely remove the item, the down arrow icon can be used until items =0...the item will automatically remove from basket and total updated.
+    
+    <br>
+
+    ![Web Page view](P5_ecommerce/static/images/basket.png)
 
 <br>
 
@@ -66,7 +74,16 @@ There are many features included in the shopping list application.
     - The Payment integration with Paypal will take over and will deduct the relevant amounts from consumer and add to the seller accounts.
     - Email confirmation is sent to the user with the details outlined.
 
+    <br>
+
+    ![Web Page view](P5_ecommerce/static/images/checkout.png)
+
 <br>
+
+- __News Letter Signup__
+    - As I want people to not only use the site, I also want them to be alerted to it.  A signup registration form is key to allowing this, it stores users details and allows for advertisements directly to thier inbox for all informational subjects....sales, promotions, changes to site and general updates.
+
+
 
 # Features left to implement
 
