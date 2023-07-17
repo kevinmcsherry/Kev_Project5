@@ -34,7 +34,7 @@ DEBUG = os.environ.get('DEBUG', False)
 # Cross-reference this debug state to set development state
 development = DEBUG
 
-ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-5okg2fwzs1g.ws-eu101.gitpod.io']
+ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-5okg2fwzs1g.ws-eu101.gitpod.io', 'golfgear-ffe6e55d1466.herokuapp.com']
 
 
 # Application definition
