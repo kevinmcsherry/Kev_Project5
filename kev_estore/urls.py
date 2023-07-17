@@ -5,6 +5,7 @@ from .views import page_not_found
 from django.contrib.auth.views import LogoutView
 from django.views.generic.base import TemplateView
 
+
 from . import views
 
 urlpatterns = [

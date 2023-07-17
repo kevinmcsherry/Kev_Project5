@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'kev_estore.apps.KevEstoreConfig',
 ]
 
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
