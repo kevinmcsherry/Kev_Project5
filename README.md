@@ -8,7 +8,7 @@ If the logged user can not make up thier mind and wish to log off and have a thi
 We accept payment via Paypal or Credit Card!
 Enjoy the Site!
 
-![Web Page view](P5_ecommerce/static/images/gg_home_page.png)
+![Web Page view](../Kev_Project5/static/images/gg_home_page.png)
 
 # Agile Methodology/Framework
 - A big part of this project was to think ahead and plan, design, prioritise and timebox tasks.  It was a great way to make me think about smaller chunks of work and plan out my project.
@@ -26,7 +26,7 @@ Enjoy the Site!
 - I did mockups of all my pages (Home Page, main product page, basket, checkout) All these mockups can be found [HERE](https://drive.google.com/drive/folders/1nCceR4MK3c5pIexAGs8ByDaan0efUXiN)
 
 - I also put together a mockup of Facebook page, this would in theory be an advertising tool to get more visibility and visitors.
-![Web Page view](P5_ecommerce/static/images/golfgear_facebook.jpg)
+![Web Page view](../Kev_Project5/static/images/golfgear_facebook.jpg)
 
 
 # Features
@@ -64,7 +64,7 @@ There are many features included in the shopping list application.
     
     <br>
 
-    ![Web Page view](P5_ecommerce/static/images/basket.png)
+    ![Web Page view](../Kev_Project5/static/images/basket.png)
 
 <br>
 
@@ -76,7 +76,7 @@ There are many features included in the shopping list application.
 
     <br>
 
-    ![Web Page view](P5_ecommerce/static/images/checkout.png)
+    ![Web Page view](../Kev_Project5/static/images/checkout.png)
 
 <br>
 
@@ -136,12 +136,12 @@ I did attempt to add this functionality, it was very complicated to decipher the
 # Deployment
 
 - In order to deploy my project and make it available to run via a visual program, I needed to synch my GitHub project through Heroku.  I had to sign up for a new account, add credentials, link to the correct repository and add some settings to allow for seemless deployment.  One thing I made sure to do was set to automatic deploys, which meant each time I pushed through gitpod, these changes would then render to the new GUI.
-- My project is deployed via Heroku.  My live published site - https://shopping-listp4.herokuapp.com/
-- My GitHub repository is housed here - https://github.com/kevinmcsherry/P4_Shop_list 
+- My project is deployed via Heroku.  My live published site - https://git.heroku.com/golfgear.git
+- My GitHub repository is housed here - https://github.com/kevinmcsherry/Kev_Project5
 <br>
 
 # Golf Gear Super User
-- My Admin user Credentials for the shopping list app : - Username - Kevin  Password - AvaandMia1
+- My Admin user Credentials for the Golf Gear app : - Username - Kevin  Password - AvaandMia1
 
 # Credits
 
