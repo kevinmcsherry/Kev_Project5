@@ -97,9 +97,7 @@ if development:
     }
 else:
     # The actual database we want to use for production
-    DATABASES = {
-     'default': dj_database_url.parse('postgres://tjczejlt:zKvRo7m83fHnliz4WgxFL-1frRBXUqn_@trumpet.db.elephantsql.com/tjczejlt')
-    }
+    DATABASES = 'default': dj_database_url.parse(os.environ.get('DB_URL'))
 
 
 
