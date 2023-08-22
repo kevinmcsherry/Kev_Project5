@@ -30,13 +30,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.environ.get('DEBUG', True)
+DEBUG = os.environ.get('DEBUG')
 # Cross-reference this debug state to set development state
-# development = DEBUG
+development = DEBUG
 
-DEBUG = True
 
-ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-8rgmptog18o.ws-eu103.gitpod.io', 'golfgear-ffe6e55d1466.herokuapp.com']
+
+ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-8rgmptog18o.ws-eu104.gitpod.io', 'golfgear-ffe6e55d1466.herokuapp.com']
 
 
 # Application definition
@@ -97,9 +97,7 @@ if development:
     }
 else:
     # The actual database we want to use for production
-    DATABASES = {
-     'default': dj_database_url.parse('postgres://tjczejlt:zKvRo7m83fHnliz4WgxFL-1frRBXUqn_@trumpet.db.elephantsql.com/tjczejlt')
-    }
+    DATABASES = os.environ.get('DB_URL')
 
 
 
