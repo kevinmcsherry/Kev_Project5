@@ -30,9 +30,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', True)
+# DEBUG = os.environ.get('DEBUG', True)
 # Cross-reference this debug state to set development state
-development = DEBUG
+# development = DEBUG
+
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-8rgmptog18o.ws-eu103.gitpod.io', 'golfgear-ffe6e55d1466.herokuapp.com']
 
