@@ -30,11 +30,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = os.environ.get('DEBUG', True)
 # Cross-reference this debug state to set development state
 development = DEBUG
 
-ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-5okg2fwzs1g.ws-eu101.gitpod.io', 'golfgear-ffe6e55d1466.herokuapp.com']
+ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-8rgmptog18o.ws-eu103.gitpod.io', 'golfgear-ffe6e55d1466.herokuapp.com']
 
 
 # Application definition
@@ -51,8 +51,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    #"django.middleware.security.SecurityMiddleware",
-    #"whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
