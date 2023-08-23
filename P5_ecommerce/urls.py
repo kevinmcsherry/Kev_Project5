@@ -24,4 +24,6 @@ urlpatterns = [
     path('', include('kev_estore.urls')),
 ]
 
+handler404 = "kev_estore.views.page_not_found"
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
