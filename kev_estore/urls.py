@@ -26,4 +26,4 @@ urlpatterns = [
     path('validate/', views.validate_email, name='validate_email'),
 ]
 
-handler404 = "kev_estore.views.page_not_found"
+handler404 = "Kev_Project5/kev_estore.views.page_not_found"
