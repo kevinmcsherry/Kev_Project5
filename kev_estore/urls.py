@@ -25,3 +25,5 @@ urlpatterns = [
 	path('newsletter/', views.newsletter, name='newsletter'),
     path('validate/', views.validate_email, name='validate_email'),
 ]
+
+handler404 = "kev_estore.views.page_not_found"
