@@ -1,5 +1,4 @@
-User-Agent: *
+User-agent: *
 Disallow: /basket/
 Disallow: /checkout/
-
 Sitemap: https://golfgear-ffe6e55d1466.herokuapp.com/sitemap.xml
