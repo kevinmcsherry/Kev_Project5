@@ -37,7 +37,7 @@ development = DEBUG
 
 
 
-ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-8rgmptog18o.ws-eu103.gitpod.io', 'golfgear-ffe6e55d1466.herokuapp.com']
+ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-8rgmptog18o.ws-eu104.gitpod.io', 'golfgear-ffe6e55d1466.herokuapp.com']
 
 
 # Application definition
