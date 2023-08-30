@@ -1,1 +1,10 @@
-<P>Add Product</P>
+{% extends 'kev_estore/main.html' %}
+{% load static %}
+{% block content %}
+<form method = "POST" action = "{% url 'add_product' %}" enctype="multipart/form-data">
+{% csrf_token %}
+    <h2>Add Product</h2>
+{{form}}
+<button>Submit</button>
+</form>
+{% endblock %}

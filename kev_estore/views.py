@@ -21,6 +21,7 @@ from .models import SubscribedUsers
 from django.core.mail import send_mail
 from django.conf import settings
 import re
+from kev_estore.forms import AddProductForm
 
 
 class Login(SuccessMessageMixin, LoginView):
@@ -197,4 +198,9 @@ def validate_email(request):
     return re
 
 def add_product(request):
-    return render(request, 'kev_estore/add_product.html', {})
+    if request.POST:
+        form = AddProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+        return redirect(home)
+    return render(request, 'kev_estore/add_product.html', {'form' : AddProductForm})
