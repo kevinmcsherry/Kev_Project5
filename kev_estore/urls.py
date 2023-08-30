@@ -24,6 +24,7 @@ urlpatterns = [
     path("robots.txt",TemplateView.as_view(template_name="Kev_Project5/robots.txt", content_type="text/plain")),
 	path('newsletter/', views.newsletter, name='newsletter'),
     path('validate/', views.validate_email, name='validate_email'),
+	path('add/', views.add_product, name='add_product'),
 ]
 
 handler404 = "kev_estore.views.page_not_found"

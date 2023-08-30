@@ -195,3 +195,6 @@ def validate_email(request):
     else:
         re = JsonResponse({'msg': 'Thank you for signing up'})
     return re
+
+def add_product(request):
+    return render(request, 'kev_estore/add_product.html', {})
