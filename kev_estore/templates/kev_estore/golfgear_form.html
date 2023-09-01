@@ -1,0 +1,10 @@
+{% extends 'kev_estore/main.html' %}
+{% load static %}
+{% block content %}
+<form method = "POST" action = "{% url 'update_product' golfgear.id %}" enctype="multipart/form-data">
+{% csrf_token %}
+    <h2>Update Product</h2>
+{{form}}
+<button>Submit</button>
+</form>
+{% endblock %}

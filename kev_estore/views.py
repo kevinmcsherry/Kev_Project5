@@ -66,6 +66,11 @@ def home(request):
 	context = {}
 	return render(request, 'kev_estore/home_page.html', context)
 
+def update_golfgear(request):
+    golfgears = GolfGear.objects.all()
+    context = {'golfgears':golfgears}
+    return render(request, 'kev_estore/update_golfgear.html', context)
+
 def golfgear(request):
 
     if request.user.is_authenticated:
@@ -209,3 +214,14 @@ def add_product(request):
             form.save()
         return redirect(home)
     return render(request, 'kev_estore/add_product.html', {'form' : AddProductForm})
+
+class UpdateProduct(UpdateView):
+    model = GolfGear
+    fields = '__all__'
+    success_message = "Item updated successfully"
+    success_url = reverse_lazy('product_management')
+
+
+
+
+

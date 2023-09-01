@@ -2,6 +2,7 @@ from django.urls import path
 from .views import CreateAccount
 from .views import Login
 from .views import page_not_found
+from .views import UpdateProduct, add_product
 from django.contrib.auth.views import LogoutView
 from django.views.generic.base import TemplateView
 
@@ -23,7 +24,10 @@ urlpatterns = [
 	path('newsletter/', views.newsletter, name='newsletter'),
     path('validate/', views.validate_email, name='validate_email'),
 	path('add_product/', views.add_product, name='add_product'),
+	#path('update_product/', UpdateProduct.as_view(), name ='update_product'),
+	path('update_product/<int:pk>/', UpdateProduct.as_view(), name ='update_product'),
 	path('product_management/', views.product_management, name='product_management'),
+	path('update_golfgear/', views.update_golfgear, name="update_golfgear"),
 ]
 
 handler404 = "kev_estore.views.page_not_found"

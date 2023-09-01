@@ -92,6 +92,12 @@
 	</nav>
 
      <div class="container">
+		{% if messages %}
+		{% for message in messages %}
+		{{ message.message }}
+		{% endfor %}
+		{% endif %}
+
             <br>
             {% block content %}
 
