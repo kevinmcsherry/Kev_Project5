@@ -16,8 +16,6 @@ urlpatterns = [
 	path('', views.home, name="home"),
 	path('checkout/', views.checkout, name="checkout"),
 	path('golfgear/', views.golfgear, name="golfgear"),
-	#path('accessories/', views.accessories, name="accessories"),
-	#path('clubs/', views.clubs, name="clubs"),
 	path('basket/', views.basket, name="basket"),
 	path('update_item/', views.updateItem, name="update_item"),
 	path('process_order/', views.processOrder, name="process_order"),
@@ -25,6 +23,7 @@ urlpatterns = [
 	path('newsletter/', views.newsletter, name='newsletter'),
     path('validate/', views.validate_email, name='validate_email'),
 	path('add_product/', views.add_product, name='add_product'),
+	path('product_management/', views.product_management, name='product_management'),
 ]
 
 handler404 = "kev_estore.views.page_not_found"

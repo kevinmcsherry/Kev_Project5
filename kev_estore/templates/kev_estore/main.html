@@ -52,6 +52,14 @@
 			<a class="nav-link" href="{% url 'golfgear' %}"><b>Golf Products</b> <span class="sr-only">(current)</span></a>
 			{% else %}
 			{% endif %}
+	      </li>
+		  
+		  <li class="nav-item active">
+
+			{% if request.user.is_superuser %}
+    		<a class="nav-link" href="{% url 'product_management' %}"><b>Product Management</b> <span class="sr-only">(current)</span></a>
+			{% else %}
+			{% endif %}
 	        
 	      </li>
 	 

@@ -197,6 +197,11 @@ def validate_email(request):
         re = JsonResponse({'msg': 'Thank you for signing up'})
     return re
 
+def product_management(request):
+    context = {}
+    return render(request, 'kev_estore/product_management.html', context)
+
+
 def add_product(request):
     if request.POST:
         form = AddProductForm(request.POST, request.FILES)
