@@ -6,7 +6,7 @@
 	<meta name="keywords" content="Golf, Golf Clothing, Golf Accessories, Golf CLubs">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimum-scale=1">
-	<title>Product Page</title>
+	<title>Delete Product Page</title>
 	{% extends 'kev_estore/main.html' %}
 	{% load static %}
 	{% block content %}
@@ -20,8 +20,7 @@
 				<h6><strong>{{golfgear.name}}</strong></h6>
 				<hr>
 
-				<button data-golfgear="{{golfgear.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-basket"><b>Add to Basket</b></button>
-				<a class="btn btn-outline-success" rel="external" target="_blank" href="https://www.laughinghens.com/clothing-size-conversion-chart">Size Chart</a>
+				<a href="{% url 'delete_product' golfgear.id %}" data-golfgear="{{golfgear.id}}" class="btn btn-outline-secondary"><b>Delete</b></a>
 				<h5 style="display: inline-block; float:right; color:red"><strong>€{{golfgear.price|floatformat:2}}</strong></h4>
 
 			</div>

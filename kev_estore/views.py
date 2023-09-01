@@ -71,6 +71,11 @@ def update_golfgear(request):
     context = {'golfgears':golfgears}
     return render(request, 'kev_estore/update_golfgear.html', context)
 
+def delete_golfgear(request):
+    golfgears = GolfGear.objects.all()
+    context = {'golfgears':golfgears}
+    return render(request, 'kev_estore/golfgear_confirm_delete.html', context)
+
 def golfgear(request):
 
     if request.user.is_authenticated:
@@ -221,7 +226,9 @@ class UpdateProduct(UpdateView):
     success_message = "Item updated successfully"
     success_url = reverse_lazy('product_management')
 
-
-
+class DeleteProduct(DeleteView):
+    model = GolfGear
+    #success_message = "Item deleted successfully"
+    success_url = reverse_lazy('product_management')
 
 
