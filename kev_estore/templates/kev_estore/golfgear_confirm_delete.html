@@ -19,10 +19,13 @@
 			<div class="box-element product">
 				<h6><strong>{{golfgear.name}}</strong></h6>
 				<hr>
-
-				<a href="{% url 'delete_product' golfgear.id %}" data-golfgear="{{golfgear.id}}" class="btn btn-outline-secondary"><b>Delete</b></a>
-				<h5 style="display: inline-block; float:right; color:red"><strong>€{{golfgear.price|floatformat:2}}</strong></h4>
-
+				<form class="delete-form" action="{% url 'delete_product' golfgear.id %}" method="POST">
+					{% csrf_token %}
+					<input type="submit" value="Delete" class="btn btn-outline-secondary" />
+					<h5 style="display: inline-block; float:right; color:red"><strong>€{{golfgear.price|floatformat:2}}</strong></h5>
+				</form>
+				
+				</h5>
 			</div>
 		
 		</div>
