@@ -39,7 +39,7 @@ class CreateAccount(SuccessMessageMixin, FormView):
     template_name = 'kev_estore/create_account.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
-    success_message = "Account created successful!"
+    success_message = "Account created successfully!"
     success_url = reverse_lazy('golfgear')
 
 
@@ -222,7 +222,7 @@ def add_product(request):
             form.save()
         return redirect(product_management)      
         redirect_authenticated_user = True
-        success_message = "Product Added!"
+        success_message = "Product Added!" 
     return render(request, 'kev_estore/add_product.html', {'form' : AddProductForm})
 
 class UpdateProduct(SuccessMessageMixin, UpdateView):
@@ -240,5 +240,8 @@ class DeleteProduct(SuccessMessageMixin, DeleteView):
     success_message = "Item deleted successfully"
     success_url = reverse_lazy('product_management')
     
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(DeleteProduct, self).delete(request, *args, **kwargs)
 
 

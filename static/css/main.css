@@ -33,6 +33,17 @@ h1,h2,h3,h4,h5,h6{
 	font-size: 14px;
 }
 
+#messages{
+	font-weight: bold;
+}
+
+.notification {
+	color:black;
+	text-align: center;
+	top: 1rem;
+	animation-name: example;
+	animation-duration: 4s;
+}
 .basket-row{
 	display: flex;
     align-items: flex-start;
