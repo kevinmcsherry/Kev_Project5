@@ -28,15 +28,18 @@ class Login(SuccessMessageMixin, LoginView):
     template_name = 'kev_estore/login.html'
     fields = '__all__'
     redirect_authenticated_user = True
+    success_message = "Login successful!"
     
     def get_success_url(self):
         return reverse_lazy('golfgear')
+        
         
 
 class CreateAccount(SuccessMessageMixin, FormView):
     template_name = 'kev_estore/create_account.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
+    success_message = "Account created successful!"
     success_url = reverse_lazy('golfgear')
 
 
@@ -217,18 +220,25 @@ def add_product(request):
         form = AddProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-        return redirect(home)
+        return redirect(product_management)      
+        redirect_authenticated_user = True
+        success_message = "Product Added!"
     return render(request, 'kev_estore/add_product.html', {'form' : AddProductForm})
 
-class UpdateProduct(UpdateView):
+class UpdateProduct(SuccessMessageMixin, UpdateView):
     model = GolfGear
     fields = '__all__'
+    redirect_authenticated_user = True
     success_message = "Item updated successfully"
     success_url = reverse_lazy('product_management')
+    
 
-class DeleteProduct(DeleteView):
+class DeleteProduct(SuccessMessageMixin, DeleteView):
     model = GolfGear
-    #success_message = "Item deleted successfully"
+    fields = '__all__'
+    redirect_authenticated_user = True
+    success_message = "Item deleted successfully"
     success_url = reverse_lazy('product_management')
+    
 
 

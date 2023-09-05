@@ -85,6 +85,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'P5_ecommerce.wsgi.application'
 
+# Messages
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
