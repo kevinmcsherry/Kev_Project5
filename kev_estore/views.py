@@ -69,6 +69,10 @@ def home(request):
 	context = {}
 	return render(request, 'kev_estore/home_page.html', context)
 
+def purchase_complete(request):
+    context = {}
+    return render(request, 'kev_estore/purchase_complete.html', context)
+
 def update_golfgear(request):
     golfgears = GolfGear.objects.all()
     context = {'golfgears':golfgears}
@@ -178,7 +182,7 @@ def processOrder(request):
 
     else:
         print('User is not logged in')
-
+    success_message = "Transaction Complete"
     return JsonResponse('Payment Complete!', safe=False)
 
 def newsletter(request):

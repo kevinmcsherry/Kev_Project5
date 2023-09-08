@@ -17,6 +17,7 @@ urlpatterns = [
 	path('', views.home, name="home"),
 	path('checkout/', views.checkout, name="checkout"),
 	path('golfgear/', views.golfgear, name="golfgear"),
+	path('purchase_complete/', views.purchase_complete, name="purchase_complete"),
 	path('basket/', views.basket, name="basket"),
 	path('update_item/', views.updateItem, name="update_item"),
 	path('process_order/', views.processOrder, name="process_order"),

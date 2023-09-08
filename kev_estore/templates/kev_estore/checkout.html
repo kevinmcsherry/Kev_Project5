@@ -199,9 +199,8 @@ paypal.Buttons({
 	    	})
 	    	.then((response) => response.json())
 	    	.then((data) => {
-				  console.log('Success:', data);
-				  alert('Transaction completed');  
-				  window.location.href = "{% url 'golfgear' %}"
+				  console.log('Success:', data); 
+                      window.location.href = "{% url 'purchase_complete' %}"
 
      })
 }

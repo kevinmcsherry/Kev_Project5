@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Golfing Gear App, A website in which you will find all of the best Golf Gear including clothing, clubs and Accessories">
+    <meta name="keywords" content="Golf, Golf Clothing, Golf Accessories, Golf CLubs">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase confirmation</title>
+{% extends 'kev_estore/main.html' %}
+{% block content %}
+
+<header>
+
+
+    <div class="header-bar">
+        <h1>Congrats {{request.user.username}}!</h1>
+        <h1>Your payment is approved, and purchase confirmed</h1>
+        <h1>Your new golf gear is on its way!</h1>
+        <p></p>
+
+    </div>
+    
+    </header>
+
+{% endblock %}
