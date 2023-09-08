@@ -15,5 +15,8 @@ class AddProductForm(forms.ModelForm):
         model = GolfGear
         fields = '__all__'
 
+class CustomerReviewForm(forms.ModelForm):
+    feedback = forms.TextInput();
+
 
 

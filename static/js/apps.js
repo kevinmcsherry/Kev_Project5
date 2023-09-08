@@ -68,9 +68,15 @@ const subscribeUser = function(email, name) {
     });
 })(jQuery);
 
+function revealMessage() {
+    document.getElementById("hiddenMessage").style.display = "block";
+    document.querySelector(".form").style.display = "none";
+  }
+
 
 
 urlpatterns = [
     path('newsletter/', views.index, name='index'),
     path('validate/', views.validate_email, name='validate_email'),
 ]
+
