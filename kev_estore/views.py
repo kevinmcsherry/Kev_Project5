@@ -32,9 +32,8 @@ class Login(SuccessMessageMixin, LoginView):
     
     def get_success_url(self):
         return reverse_lazy('golfgear')
-        
-        
-
+    
+         
 class CreateAccount(SuccessMessageMixin, FormView):
     template_name = 'kev_estore/create_account.html'
     form_class = UserCreationForm
