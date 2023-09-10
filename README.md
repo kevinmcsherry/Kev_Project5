@@ -15,18 +15,19 @@ Enjoy the Site!
 - By more planning I felt that I could conceptulise and not get too far ahead, allowing me to focus on certain items of delivery, step by step, not to just focus on end result. 
 - I learned how to use this via github and to break tasks down into manageable chunks of work, and again to focus on these as MVP vs everything I'd like to deliver. 
 - CRUD - I've designed, planned and executed all of the CRUD functions.  My application allows a user to:-
-    - Create - New Accounts, new shopping items
+    - Create - New Accounts and also SuperUsers have the ability to create new products.
     - Read - Information is collected and stored, and is made readable on UI via the database. 
-    - Update - Current stored data can be changed and updated, and again made visible on UI via database.
-    - Delete - Stored information can also be deleted.  This information is then rendered on UI via database.
+    - Update - Golf Gear products can be updated via the UI for SuperUsers.
+    - Delete - All Golf Gear products can be deleted by SuperUsers.
 
 # UI Designs 
 - Part of the Agile design was to deisgn UI Mockups prior to coding and constructing.
 - This is a good practise to allow me to visualize how the product will look and feel and to put myself in the users shoes from a visual point of view..
 - I did mockups of all my pages (Home Page, main product page, basket, checkout) All these mockups can be found [HERE](https://drive.google.com/drive/folders/1nCceR4MK3c5pIexAGs8ByDaan0efUXiN)
+- As can be seen by my original mockups, I had plans of having three seperate pages for product category.  This proved too difficult to manage and maintain, so decided to try and simplify.
 
 - I also put together a mockup of Facebook page, this would in theory be an advertising tool to get more visibility and visitors.
-![Web Page view](../Kev_Project5/static/images/golfgear_facebook.jpg)
+![Web Page view](../Kev_Project5/media/golfgear_facebook.jpg)
 
 
 # Features
@@ -37,23 +38,27 @@ There are many features included in the shopping list application.
     - A user must have login credentials to use the site
     - With login credentials, a user can only view thier own details
     - There is a create account function to allow users without login to create one and use site straight away.
+    - Payment methods via PayPal will be secured to Logged in user, but the payment details will be available to the user and stored for next visit
+    - SuperUser operations only visible to SuperUsers and not to normal customers.
 
 <br>
 
 - __Easy Navigation__
     - A user can easily navigate through the site via clear links and one click utilisation.
     - Pages are clear and concise, with no confusion
-    - Clear instruction on options to add/edit/remove items from list.
+    - Product management page has clear options (Create/Update/Delete) and each option will take back to main product page with the relevant option on each product.
+    - Create product will bring the user to a form in which they can create the specifics on a product (description, price, image)
 
 <br>
 
 - __Mobile Friendly__
     - Application is very device friendly.  This is very important for this app in particular to allow users to use on the go, when at shops for exmaple.  
+    - All options available on Laptop/PC are available and clear on all mobile devices.
 
 <br>
 
 - __Notifications/Messaging__
-    - When actions complete by user, messaging appears to inform of success.
+    - When actions complete by user, clear messaging will be displayed, these messages will appear after Login, Product update, create and delete.
 
 <br>
 
@@ -82,12 +87,23 @@ There are many features included in the shopping list application.
 
 - __News Letter Signup__
     - As I want people to not only use the site, I also want them to be alerted to it.  A signup registration form is key to allowing this, it stores users details and allows for advertisements directly to thier inbox for all informational subjects....sales, promotions, changes to site and general updates.
+    - I used the mailchimp service to provide my newsletter signup for users.  Its a fantastic and simple way to provide such a service
 
+    <br>
+
+    ![Web Page view](../Kev_Project5/media/newsletter.png)
+
+- __Purchase Confirmation and Feedback Page__
+    - Once a user completes a purchase, the site will provide a confirmation page and an opportunity to provide feedback of experience.
+
+    <br>
+
+    ![Web Page view](../Kev_Project5/media/confirm_page.png)
 
 
 # Features left to implement
 
-- Messaging - The messaging is not as I want it to be, it works for most pages but not all.  I would also like to have the message pop as an alert and not remain on screen
+- Messaging - The messaging is not as I want it to be, it works for most pages but not all.  I would also like to have the message pop as an alert and not remain on screen - FIXED for most pages and messages, still not perfect for all actions.
 
 - Overall better UI - I would spend more time on making the user interface a bit more fun and exciting, currently its very basic, with colours a little bland. 
 
@@ -127,10 +143,17 @@ I did attempt to add this functionality, it was very complicated to decipher the
  ## Unfixed Bugs
 
  - As I write this report, a current major issue I have is creating a user account that will also become a customer.. My model set up is with a seperate Customer table outside of the user... so after creating an account the user can not use the site as a customer until I add them via the admin utility... this is a big problem that I have been trying to fix unsuccesfully at this point.
+ - (**The above is now fixed!**)
 
  - Messaging - My messages are being erratic... they seem to present themselves at times and other not.. it really is bothering me.  
 
  - Guest functionality - I'm not sure if this is a bug neccessarily, but its certainly something that feels like its missing - a website like this should allow no registered users to utilise. 
+
+ - After an item which is present in the basket, then the SuperUser updates that product, once going back to basket the website throws an error.
+
+ ## Marketing Strategy
+
+ - 
 
 
 # Deployment
@@ -141,14 +164,28 @@ I did attempt to add this functionality, it was very complicated to decipher the
 <br>
 
 # Golf Gear Super User
-- My Admin user Credentials for the Golf Gear app : - Username - Kevin  Password - AvaandMia1
+- My Admin user Credentials for the Golf Gear app : - **Username** - Kevin  **Password** - AvaandMia1
 
 # Credits
 
-- I was venturing into unknown territory here with the use of Django and Boostrap etc.  I have to say that I did struggle to get to terms with it...as I find it quite different from the coding we have done in past projects.  I had to rely on a lot of the content from LMS program and the practise projects.  
-- The boutique ado project aided me in many ways, from getting started with set-up of django and framework and also the database set up.  I also used a lot of the template structures to help me with getting basic designs set up. 
+- This was my second venture into using django and bootstrap along with python and javascript... I had a lot of distractions during my last phase of this course, work and personal life has been difficult... this has led to not being able to give it the time required.. I missed some content, and did not have time to go through the full boutique ado project, so I came into this project a little behind and without desired skills.
+
+<br>
+
+- Even with not completing the boutique ado project, it still aided me in many ways, from getting started with set-up of django and framework and also the database set up.  I also used a lot of the template structures to help me with getting basic designs set up. 
+The web marketing part was also informative becuase this was completely new to me.
+
+<br> 
+
 - I never rely on just one source for my help.  I did a lot of research online to see about other sources that could help me in the development of this project.  I came across some really helpful content and with a particular person on youtube called Denis Ivanov, thats content really helped.  He has tutorials online and also lots of content online which I could not have got to the stage I'm at without.  I used a lot of his content on his [website](https://www.dennisivy.com/), and a lot of his advice through his video content.
+
+<br>
+
 - For my Page Not Found set up and styling I used a source named [makeuseof](https://www.makeuseof.com/create-custom-404-error-page-django/)
+
+<br>
+
+- For my newsletter I used **mailchimp** integration and services.
 
 # Project Summary
 - Tough!  I felt comfortable with past projects becuase I was comfortable doing a bit of coding.  I felt this took me out of my comfort zone and was a challenge bringing me back to HTML and CSS.  I have always struggled a little with designing and styling my front ends. 
