@@ -153,7 +153,19 @@ I did attempt to add this functionality, it was very complicated to decipher the
 
  ## Marketing Strategy
 
- - 
+ - The key strategy of marketing for my website is through organic social media marketing.  I will rely heavily on Facebook and the site created for it.  
+   This will allow for many advantages : - 
+    - Having direct access to many potential customers 24/7
+    - Quick and regular feedback
+    - Access to ongoing trends in the market
+    - Low cost
+    - Online reviews
+    - Network expansion from widening connections
+    - Far reaching campaigns
+
+ - Repeat visitors will also be crucial, so I would fully expect to provide incentives via the newsletter in which people signup for.  Along with continued comms to connections on promotions, sales, new product lines etc.
+
+ - ![Web Page view](../Kev_Project5/media/business_model.png)
 
 
 # Deployment
