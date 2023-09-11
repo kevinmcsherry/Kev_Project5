@@ -8,7 +8,7 @@ If the logged user can not make up thier mind and wish to log off and have a thi
 We accept payment via Paypal or Credit Card!
 Enjoy the Site!
 
-![Web Page view](../Kev_Project5/media/gg_home_page.png)
+![Web Page view](/media/gg_home_page.png)
 
 # Agile Methodology/Framework
 - A big part of this project was to think ahead and plan, design, prioritise and timebox tasks.  It was a great way to make me think about smaller chunks of work and plan out my project.
