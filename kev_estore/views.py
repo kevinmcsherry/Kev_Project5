@@ -47,7 +47,7 @@ class CreateAccount(SuccessMessageMixin, FormView):
         if user is not None:
             login(self.request, user)
         return super(CreateAccount, self).form_valid(form)
-
+        
 
     @receiver(post_save, sender=User)
     def create_or_update_customer(sender, instance, created, **kwargs):

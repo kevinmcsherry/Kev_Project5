@@ -37,12 +37,18 @@
     {% csrf_token %}
     <label style="font-size: large;" aria-label >{{form.username.label}}</label>
     {{form.username}}
+    <p style="font-size: smaller;"><i>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</i></p>
 
     <label style="font-size: large;" aria-label >{{form.password1.label}}</label>
     {{form.password1}}
+    <p style="font-size: smaller;"> <i>password can’t be too similar to your other personal information.
+        Your password must contain at least 8 characters.
+        Your password can’t be a commonly used password.
+        Your password can’t be entirely numeric.</i></p>
 
     <label style="font-size: large;" aria-label >{{form.password2.label}}</label>
     {{form.password2}}
+    <p style="font-size: smaller;"><i>Enter the same password as before, for verification.</i></p>
     
     <input style="margin-top: 10px; font-size: large; font-weight: bolder;" class="button" type="submit" value="Submit">
 </form>
