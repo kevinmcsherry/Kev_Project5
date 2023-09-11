@@ -8,17 +8,26 @@ If the logged user can not make up thier mind and wish to log off and have a thi
 We accept payment via Paypal or Credit Card!
 Enjoy the Site!
 
-![Web Page view](../Kev_Project5/static/images/gg_home_page.png)
+![Web Page view](../Kev_Project5/media/gg_home_page.png)
 
 # Agile Methodology/Framework
 - A big part of this project was to think ahead and plan, design, prioritise and timebox tasks.  It was a great way to make me think about smaller chunks of work and plan out my project.
+
 - By more planning I felt that I could conceptulise and not get too far ahead, allowing me to focus on certain items of delivery, step by step, not to just focus on end result. 
+
 - I learned how to use this via github and to break tasks down into manageable chunks of work, and again to focus on these as MVP vs everything I'd like to deliver. 
+
+- In GitHub, I was able to create Issues, in which I could break down my User stories into milestones to help plan my tasks in a strategic way.
+
+- Whilst using these facilities in GitHub, I was also able to prioritise my tasks also, this helped me during times of technical challenges.. this made me think in a way more in relation to MVP delivery and decide based on available time, what can be defined as must haves vs nice to haves, and in the end, wont haves.
+
 - CRUD - I've designed, planned and executed all of the CRUD functions.  My application allows a user to:-
     - Create - New Accounts and also SuperUsers have the ability to create new products.
     - Read - Information is collected and stored, and is made readable on UI via the database. 
     - Update - Golf Gear products can be updated via the UI for SuperUsers.
     - Delete - All Golf Gear products can be deleted by SuperUsers.
+
+<br>
 
 # UI Designs 
 - Part of the Agile design was to deisgn UI Mockups prior to coding and constructing.
@@ -113,6 +122,8 @@ I did attempt to add this functionality, it was very complicated to decipher the
 - Multiple pages vs one.  My original plan and layout was to have numerous pages of products for better experience and design.  As I was developing my site and functionality, it was proving really difficult to pull the information when dealing with basket and incrementing items for purchasing etc..so I went back to one page.
 
 - Views of products - As it stands the descriptions are very high level of the products, I would like to have added an option to click into item and to view more about it.... sizes available, colours, and perhaps a zoom option into the product. 
+
+- I provided a feature in which a user can provide feedback of thier overall experience.  As it stands, this feedback does not get stored and utilised.  Ideally with more time, I would store this information so that I could use it to evaluate trends.  I would also expand this to allow for commentary feedback to allow for my context and rich feedback.
 
 ## Testing
 

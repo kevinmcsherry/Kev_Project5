@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm, forms
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from .models import *
 from django.db import models
 from django.http import JsonResponse
@@ -32,6 +32,12 @@ class Login(SuccessMessageMixin, LoginView):
     
     def get_success_url(self):
         return reverse_lazy('golfgear')
+
+class Logout(LogoutView):
+    template_name = 'kev_estore/logout.html'
+    redirect_authenticated_user = True
+    success_message = "Logout successful!"
+    
     
          
 class CreateAccount(SuccessMessageMixin, FormView):
@@ -67,6 +73,10 @@ class CreateAccount(SuccessMessageMixin, FormView):
 def home(request):
 	context = {}
 	return render(request, 'kev_estore/home_page.html', context)
+
+def logout(request):
+    context = {}
+    return render(request, 'kev_estore/logout.html', context)
 
 def purchase_complete(request):
     context = {}

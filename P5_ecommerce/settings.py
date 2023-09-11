@@ -43,6 +43,7 @@ ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-8rgmptog18o.ws-us104.gitpod.io', 
 # Application definition
 
 INSTALLED_APPS = [
+    'kev_estore.apps.KevEstoreConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'kev_estore.apps.KevEstoreConfig',
+    
 ]
 
 MIDDLEWARE = [

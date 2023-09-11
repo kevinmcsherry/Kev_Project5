@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import CreateAccount
-from .views import Login
+from .views import Login, Logout
 from .views import page_not_found
 from .views import UpdateProduct, DeleteProduct, add_product, delete_golfgear
 from django.contrib.auth.views import LogoutView
@@ -12,7 +12,7 @@ from . import views
 urlpatterns = [
         #Leave as empty string for base url
 	path('login/', Login.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('logout/', views.Logout.as_view(), name='logout'),
     path('create_account/', CreateAccount.as_view(), name='create_account'),
 	path('', views.home, name="home"),
 	path('checkout/', views.checkout, name="checkout"),
