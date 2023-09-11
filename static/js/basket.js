@@ -14,7 +14,7 @@ for(var i = 0; i < updateBtns.length; i++){
 
 function updateUserOrder(golfgearId, action){
     console.log('User is logged in, sending data..')
-
+    
     var url = '/update_item/'
 
     fetch(url, {

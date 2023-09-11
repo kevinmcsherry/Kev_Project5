@@ -12,7 +12,7 @@ from . import views
 urlpatterns = [
         #Leave as empty string for base url
 	path('login/', Login.as_view(), name='login'),
-    path('logout/', views.Logout.as_view(), name='logout'),
+    path('logout/', Logout.as_view(), name='logout'),
     path('create_account/', CreateAccount.as_view(), name='create_account'),
 	path('', views.home, name="home"),
 	path('checkout/', views.checkout, name="checkout"),

@@ -53,6 +53,7 @@ class CreateAccount(SuccessMessageMixin, FormView):
         if user is not None:
             login(self.request, user)
         return super(CreateAccount, self).form_valid(form)
+
         
 
     @receiver(post_save, sender=User)
@@ -156,6 +157,7 @@ def updateItem(request):
 
     if action == 'add':
         orderItem.quantity = (orderItem.quantity +1)
+        messages.success(request, "Item Added to Basket")
     elif action == 'remove':
         orderItem.quantity = (orderItem.quantity -1)
 
