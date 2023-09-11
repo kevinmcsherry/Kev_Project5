@@ -36,7 +36,7 @@ Enjoy the Site!
 - As can be seen by my original mockups, I had plans of having three seperate pages for product category.  This proved too difficult to manage and maintain, so decided to try and simplify.
 
 - I also put together a mockup of Facebook page, this would in theory be an advertising tool to get more visibility and visitors.
-![Web Page view](../Kev_Project5/media/golfgear_facebook.jpg)
+![Web Page view](/media/golfgear_facebook.jpg)
 
 
 # Features
@@ -78,7 +78,7 @@ There are many features included in the shopping list application.
     
     <br>
 
-    ![Web Page view](../Kev_Project5/static/images/basket.png)
+    ![Web Page view](/media/basket.png)
 
 <br>
 
@@ -90,7 +90,7 @@ There are many features included in the shopping list application.
 
     <br>
 
-    ![Web Page view](../Kev_Project5/static/images/checkout.png)
+    ![Web Page view](/media/checkout.png)
 
 <br>
 
@@ -100,14 +100,14 @@ There are many features included in the shopping list application.
 
     <br>
 
-    ![Web Page view](../Kev_Project5/media/newsletter.png)
+    ![Web Page view](/media/newsletter.png)
 
 - __Purchase Confirmation and Feedback Page__
     - Once a user completes a purchase, the site will provide a confirmation page and an opportunity to provide feedback of experience.
 
     <br>
 
-    ![Web Page view](../Kev_Project5/media/confirm_page.png)
+    ![Web Page view](/media/confirm_page.png)
 
 
 # Features left to implement
@@ -176,7 +176,7 @@ I did attempt to add this functionality, it was very complicated to decipher the
 
  - Repeat visitors will also be crucial, so I would fully expect to provide incentives via the newsletter in which people signup for.  Along with continued comms to connections on promotions, sales, new product lines etc.
 
- - ![Web Page view](../Kev_Project5/media/business_model.png)
+ - ![Web Page view](/media/business_model.png)
 
 
 # Deployment
