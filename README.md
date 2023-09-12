@@ -140,6 +140,7 @@ There are many features included in the shopping list application.
 
 - __Purchase Confirmation and Feedback Page__
     - Once a user completes a purchase, the site will provide a confirmation page and an opportunity to provide feedback of experience.
+    -**Since deploying to Heroku, the confirmation page is not working, but the amounts are still going through on Paypal accounts**
 
     <br>
 
@@ -150,7 +151,7 @@ There are many features included in the shopping list application.
 
     <br>
 
-    ![Web Page view]()
+    ![Web Page view](/static/images/custom_Page_404.png)
 
 
 # Features left to implement
