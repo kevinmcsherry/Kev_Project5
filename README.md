@@ -1,27 +1,38 @@
 # README Table of contents
 
   - [**Project 5 Ecommerce - Golf Gear - Introduction**](#project-5-ecommerce---golf-gear---introduction)
-  <br>
+
+
   - [**Agile Methodology/Framework**](#agile-methodologyframework)
-  <br>
+
+
   - [**UI Designs**](#ui-designs)
-  <br>
+
+
   - [**Features**](#features)
-  <br>
+
+  
   - [**Features to implement**](#features-left-to-implement)
-  <br>
+
+
   - [**Testing**](#testing)
-  <br>
+
+  
   - [**Unfixed Bugs**](#unfixed-bugs)
-  <br>
+
+
   - [**Marketing Strategy**](#marketing-strategy)
-  <br>
+
+
   - [**Deployment**](#deployment)
-  <br>
+
+
   - [**Golf Gear Super User**](#golf-gear-super-user)
-  <br>
+
+
   - [**Credits**](#credits)
-  <br>
+
+
   - [**Project Summary**](#project-summary)
 
 # Project 5 Ecommerce - Golf Gear - Introduction
