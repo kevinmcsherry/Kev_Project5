@@ -90,11 +90,20 @@ There are many features included in the shopping list application.
 - __Mobile Friendly__
     - Application is very device friendly.  This is very important for this app in particular to allow users to use on the go, when at shops for exmaple.  
     - All options available on Laptop/PC are available and clear on all mobile devices.
+    - As a social media driven market, it was really important to focus on seamless functionality on mobile devices to align with the modern society needs.
 
 <br>
 
 - __Notifications/Messaging__
-    - When actions complete by user, clear messaging will be displayed, these messages will appear after Login, Product update, create and delete.
+    - When actions complete by user, clear messaging will be displayed.
+        - **Login**
+        - **Logout**
+        - **Account Creation**
+        - **Product Creation**
+        - **Product Update**
+        - **Product Deletion**
+        - **Additions/Removal from basket**
+
 
 <br>
 
@@ -213,10 +222,13 @@ I did attempt to add this functionality, it was very complicated to decipher the
 - In order to deploy my project and make it available to run via a visual program, I needed to synch my GitHub project through Heroku.  I had to sign up for a new account, add credentials, link to the correct repository and add some settings to allow for seemless deployment.  One thing I made sure to do was set to automatic deploys, which meant each time I pushed through gitpod, these changes would then render to the new GUI.
 - My project is deployed via Heroku.  My live published site - https://git.heroku.com/golfgear.git
 - My GitHub repository is housed here - https://github.com/kevinmcsherry/Kev_Project5
+
 <br>
 
 # Golf Gear Super User
 - My Admin user Credentials for the Golf Gear app : - **Username** - Kevin  **Password** - AvaandMia1
+
+<br>
 
 # Credits
 
