@@ -239,6 +239,9 @@ I did attempt to add this functionality, it was very complicated to decipher the
 # Deployment
 
 - In order to deploy my project and make it available to run via a visual program, I needed to synch my GitHub project through Heroku.  I had to sign up for a new account, add credentials, link to the correct repository and add some settings to allow for seemless deployment.  One thing I made sure to do was set to automatic deploys, which meant each time I pushed through gitpod, these changes would then render to the new GUI.
+- In order to allow the ability for users to create new products and add images, I had to set my project up with AWS and S3.  I created an account in Amazon and set up the project user groups, accesses and rights to allow users to view and add different images.
+- I set up my static and media files on S3 to store all files required for project.
+- I added all my product images to the media folder in the S3 account.  I also added my static files for the sites usability. 
 - My project is deployed via Heroku.  My live published site - https://git.heroku.com/golfgear.git
 - My GitHub repository is housed here - https://github.com/kevinmcsherry/Kev_Project5
 
