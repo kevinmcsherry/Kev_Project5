@@ -273,6 +273,12 @@ The web marketing part was also informative becuase this was completely new to m
 
 - For my newsletter I used **mailchimp** integration and services.
 
+<br>
+
+- **Paypal Integration** - I needed help to integrate PayPal into my project.  I wanted to try and use a different payment method than that of any taught projects in the cirriculum.  This proved quite difficult, I used many resources, a key one being 'studygaan.com' and in particular an article in relation to steps to take to set up correctly - [PayPal](https://studygyaan.com/django/django-paypal-payment-gateway-integration-tutorial?utm_content=cmp-true)
+
+<br>
+
 # Project Summary
 - Tough!  I felt comfortable with past projects becuase I was comfortable doing a bit of coding.  I felt this took me out of my comfort zone and was a challenge bringing me back to HTML and CSS.  I have always struggled a little with designing and styling my front ends. 
 - I had a number of different ideas in which I was going to follow, which I then backtracked becuase of the potential difficulty.  I dedided to go with something that I'm passionate about, Golf!
