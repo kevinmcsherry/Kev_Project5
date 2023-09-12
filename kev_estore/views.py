@@ -234,7 +234,7 @@ def updateItem(request):
         messages.success(request, "Item Added to Basket")
     elif action == 'remove':
         orderItem.quantity = (orderItem.quantity -1)
-
+        messages.success(request, "Item Removed from Basket")
     orderItem.save()
 
     if orderItem.quantity <=0:
