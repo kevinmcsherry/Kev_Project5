@@ -152,6 +152,8 @@ I did attempt to add this functionality, it was very complicated to decipher the
 
 - I provided a feature in which a user can provide feedback of thier overall experience.  As it stands, this feedback does not get stored and utilised.  Ideally with more time, I would store this information so that I could use it to evaluate trends.  I would also expand this to allow for commentary feedback to allow for my context and rich feedback.
 
+- An additional feature that would make the site more compelling is to have a history section for registered users.  I would like users to see all of thier older orders.  Currently the basket will remain in-tact for previous users visiting and will still hold old information... but not historical data.
+
 ## Testing
 
 - There was a lot of testing throughout this project.  Each and every small change was tested as I went.  I wanted to avoid any last minute bulk testing and therefreo refactoring, so testing as I developed my way through was how I approached this.

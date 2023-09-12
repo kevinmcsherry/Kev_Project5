@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Golfing Gear App, A website in which you will find all of the best Golf Gear including clothing, clubs and Accessories""><meta name="keywords" content="Golf, Golf Clothing, Golf Accessories, Golf CLubs">
+    <meta name="description"
+        content="Golfing Gear App, A website in which you will find all of the best Golf Gear including clothing, clubs and Accessories""><meta name="
+        keywords" content="Golf, Golf Clothing, Golf Accessories, Golf CLubs">
     <meta name="keywords" content="Golf, Golf Clothing, Golf Accessories, Golf CLubs">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,57 +21,59 @@
         {% endfor %}
     </div>
 
-<header> 
+    <header>
 
-<div class="header-bar">
-    <h1>Golf Gear -  <br>
-        Create Account
-    </h1>
+        <div class="header-bar">
+            <h1>Golf Gear - <br>
+                Create Account
+            </h1>
 
-</div>
-    
-
-</header>
-
-<main>
-
-<div class="card-body">
-<form method="POST">
-    {% csrf_token %}
-    <label style="font-size: large;" aria-label >{{form.username.label}}</label>
-    {{form.username}}
-    <p style="font-size: smaller;"><i>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</i></p>
-
-    <label style="font-size: large;" aria-label >{{form.password1.label}}</label>
-    {{form.password1}}
-    <p style="font-size: smaller;"> <i>password can’t be too similar to your other personal information.
-        Your password must contain at least 8 characters.
-        Your password can’t be a commonly used password.
-        Your password can’t be entirely numeric.</i></p>
-
-    <label style="font-size: large;" aria-label >{{form.password2.label}}</label>
-    {{form.password2}}
-    <p style="font-size: smaller;"><i>Enter the same password as before, for verification.</i></p>
-    
-    <input style="margin-top: 10px; font-size: large; font-weight: bolder;" class="button" type="submit" value="Submit">
-</form>
-</div>
-{% if field.errors %}
-  <div>
-    {% for error in field.errors %}
-      {{ error }}
-    {% endfor %}
-  </div>
-{% endif %}
-
-</main>
-
-<footer>
-
-<p>Already have an account? <a href="{% url 'login' %}" class="btn btn-warning">Login</a></p>
+        </div>
 
 
-</footer>
+    </header>
+
+    <main>
+
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                <label style="font-size: large;" aria-label><b>{{form.username.label}}</b></label>
+                {{form.username}}
+                <p style="font-size: smaller;"><i>Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+                        only.</i></p>
+
+                <label style="font-size: large;" aria-label><b>{{form.password1.label}}</b></label>
+                {{form.password1}}
+                <p style="font-size: smaller;"> <i>password can’t be too similar to your other personal information.
+                        Your password must contain at least 8 characters.
+                        Your password can’t be a commonly used password.
+                        Your password can’t be entirely numeric.</i></p>
+
+                <label style="font-size: large;" aria-label><b>{{form.password2.label}}</b></label>
+                {{form.password2}}
+                <p style="font-size: smaller;"><i>Enter the same password as before, for verification.</i></p>
+
+                <input style="margin-top: 10px; font-size: large; font-weight: bolder;" class="button" type="submit"
+                    value="Submit">
+            </form>
+        </div>
+        {% if field.errors %}
+        <div>
+            {% for error in field.errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    </main>
+
+    <footer>
+
+        <p>Already have an account? <a href="{% url 'login' %}" class="btn btn-warning">Login</a></p>
 
 
-{% endblock %}
+    </footer>
+
+
+    {% endblock %}

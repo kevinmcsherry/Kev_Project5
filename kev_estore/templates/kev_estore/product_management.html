@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Golfing Gear App, A website in which you will find all of the best Golf Gear including clothing, clubs and Accessories">
+    <meta name="description"
+        content="Golfing Gear App, A website in which you will find all of the best Golf Gear including clothing, clubs and Accessories">
     <meta name="keywords" content="Golf, Golf Clothing, Golf Accessories, Golf CLubs">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-{% extends 'kev_estore/main.html' %}
-{% block content %}
+    {% extends 'kev_estore/main.html' %}
+    {% block content %}
 
-<header>
+    <header>
 
 
-    <div class="header-bar">
-        <h1>Welcome {{request.user.username}}!</h1>
-        <h2>On this page you can manage your golf products. <br> please select from the options</h2>
-        <p></p>
-        <a href="{% url 'add_product' %}" class="btn btn-success">Create</a> 
-        <a href="{% url 'update_golfgear' %}" class="btn btn-warning">Update</a>
-        <a href="{% url 'delete_golfgear' %}" class="btn btn-danger">Delete</a>
+        <div class="header-bar">
+            <h1>Welcome {{request.user.username}}!</h1>
+            <h2>On this page you can manage your golf products. <br> please select from the options</h2>
+            <p></p>
+            <a href="{% url 'add_product' %}" class="btn btn-success">Create</a>
+            <a href="{% url 'update_golfgear' %}" class="btn btn-warning">Update</a>
+            <a href="{% url 'delete_golfgear' %}" class="btn btn-danger">Delete</a>
 
-    </div>
-    
+        </div>
+
     </header>
 
-{% endblock %}
+    {% endblock %}

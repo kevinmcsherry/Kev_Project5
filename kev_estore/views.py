@@ -25,6 +25,12 @@ from kev_estore.forms import AddProductForm
 
 
 class Login(SuccessMessageMixin, LoginView):
+    '''
+    Recieve login details from registered user
+    if user details are recognised, bring them
+    to the main Website product page
+    if not recognised, return to Login page
+    '''
     template_name = 'kev_estore/login.html'
     fields = '__all__'
     redirect_authenticated_user = True
@@ -34,13 +40,26 @@ class Login(SuccessMessageMixin, LoginView):
         return reverse_lazy('golfgear')
 
 class Logout(LogoutView):
+    '''
+    Recieves a logout instruction
+    returns user to the Logout page
+    '''
     template_name = 'kev_estore/logout.html'
     redirect_authenticated_user = True
     success_message = "Logout successful!"
-    
+
     
          
 class CreateAccount(SuccessMessageMixin, FormView):
+    '''
+    Creates a new account by receiving the parameters : -
+    Username
+    Password
+    Password(confirmed)
+    On success, class will bring user to main page of Website
+    with successful message.
+    On error, class will return user to the 'create account' form.
+    '''
     template_name = 'kev_estore/create_account.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
@@ -72,28 +91,55 @@ class CreateAccount(SuccessMessageMixin, FormView):
 
 
 def home(request):
-	context = {}
-	return render(request, 'kev_estore/home_page.html', context)
+    '''
+    Link to home page
+    '''
+    context = {}
+    return render(request, 'kev_estore/home_page.html', context)
 
 def logout(request):
+    '''
+    Link to Logout page
+    '''
     context = {}
     return render(request, 'kev_estore/logout.html', context)
 
 def purchase_complete(request):
+    '''
+    Link to purchase complete page
+    '''
     context = {}
     return render(request, 'kev_estore/purchase_complete.html', context)
 
 def update_golfgear(request):
+    '''
+    Recieves the instruction from user
+    to update product from the product management 
+    page
+    Brings user to update product form
+    '''
     golfgears = GolfGear.objects.all()
     context = {'golfgears':golfgears}
     return render(request, 'kev_estore/update_golfgear.html', context)
 
 def delete_golfgear(request):
+    '''
+    Recieves the instruction from user
+    to delete product from the product management 
+    page
+    Brings user to delete product form
+    '''
     golfgears = GolfGear.objects.all()
     context = {'golfgears':golfgears}
     return render(request, 'kev_estore/golfgear_confirm_delete.html', context)
 
 def golfgear(request):
+    '''
+    Renders main product page
+    Based on the user credentials
+    and past interactions, will
+    have the basket populated
+    '''
 
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -111,7 +157,12 @@ def golfgear(request):
 
 
 def basket(request):
-
+    '''
+    Recieves user information
+    Basket will set number based on 
+    previous visit if any.
+    If new, basket will be reset.
+    '''
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, done=False)
@@ -127,6 +178,13 @@ def basket(request):
 
 
 def checkout(request):
+    '''
+    Recieves user information
+    Recieves basket item count
+    Recieves basket total
+    Renders checkout page with details
+    of order
+    '''
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, done=False)
@@ -142,9 +200,25 @@ def checkout(request):
 
 
 def page_not_found(request, exception):
+    '''
+    Triggers custom page not found
+    when an unrecognised page is navigated
+    '''
     return render(request, 'kev_estore/page_not_found.html', status=404)
 
 def updateItem(request):
+    '''
+    This function is to allow user
+    to add or subtract the quantity 
+    of items in basket for products
+    present.
+    It will recieve items from basket,
+    display each product, item counts
+    and overall cost amount.
+    The user can use the arrow keys to 
+    increase or decrease item amounts.
+    Will delete the item if count is <0.
+    '''
     data = json.loads(request.body)
     golfgearId = data['golfgearId']
     action = data['action']
@@ -169,6 +243,11 @@ def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
 def processOrder(request):
+    '''
+    Recieves details of order
+    Once transaction is completed via
+    PayPal, stores data in database
+    '''
     order_id = datetime.datetime.now().timestamp()
     data = json.loads(request.body)
 
@@ -190,47 +269,36 @@ def processOrder(request):
         country=data['shipping']['country'],
         post_code=data['shipping']['postalcode'],
         )
-
     else:
         print('User is not logged in')
-    success_message = "Transaction Complete"
     return JsonResponse('Payment Complete!', safe=False)
 
 def newsletter(request):
-    if request.method == 'POST':
-            post_data = request.POST.copy()
-            email = post_data.get("email", None)
-            name = post_data.get("name", None)
-            subscribedUsers = SubscribedUsers()
-            subscribedUsers.email = email
-            subscribedUsers.name = name
-            subscribedUsers.save()
-            # send a confirmation mail
-            subject = 'NewsLetter Subscription'
-            message = 'Thanks for subscribing us. You will get notification of latest articles posted on our website. Please do not reply on this email.'
-            email_from = settings.EMAIL_HOST_USER
-            recipient_list = [email, ]
-            send_mail(subject, message, email_from, recipient_list)
+    '''
+    Link to Newsletter signup
+    form
+    '''
+    context = {}       
     return render(request, 'kev_estore/newsletter.html')
 
-def validate_email(request): 
-    email = request.POST.get("email", None)   
-    if email is None:
-        re = JsonResponse({'msg': 'Email is required.'})
-    elif SubscribedUsers.objects.get(email = email):
-        re = JsonResponse({'msg': 'Email Address already exists'})
-    elif not re.match(r"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", email):
-        re = JsonResponse({'msg': 'Invalid Email Address'})
-    else:
-        re = JsonResponse({'msg': 'Thank you for signing up'})
-    return re
-
 def product_management(request):
+    '''
+    Link to Product management
+    page
+    '''
     context = {}
     return render(request, 'kev_estore/product_management.html', context)
 
 
 def add_product(request):
+    '''
+    Request for an addition of a product
+    Renders add product form
+    Takes inputs of name, cost, image
+    Stores new product info
+    Displays new product info
+    on product page
+    '''
     if request.POST:
         form = AddProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -241,6 +309,18 @@ def add_product(request):
     return render(request, 'kev_estore/add_product.html', {'form' : AddProductForm})
 
 class UpdateProduct(SuccessMessageMixin, UpdateView):
+    '''
+    Recieves instruction to update
+    products
+    Renders Product page with update
+    option on each current product
+    Once product selected, uses item id
+    to identify selection - form renders
+    to allow for updated details
+    Renders product page with updated details
+    of products
+    Stored update in database
+    '''
     model = GolfGear
     fields = '__all__'
     redirect_authenticated_user = True
@@ -249,6 +329,18 @@ class UpdateProduct(SuccessMessageMixin, UpdateView):
     
 
 class DeleteProduct(SuccessMessageMixin, DeleteView):
+    '''
+    Recieves instruction to delete
+    products
+    Renders Product page with delete
+    option on each current product
+    Once product selected, uses item id
+    to identify selection - form renders
+    to allow for updated details
+    Renders product page with updated details
+    of products - product deleted not present
+    Stored update in database
+    '''
     model = GolfGear
     fields = '__all__'
     redirect_authenticated_user = True

@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Customer(models.Model):
+    '''
+    Table to host data of all registered customers
+    '''
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=100, null=True)
     email = models.CharField(max_length=100, null=True)
@@ -11,6 +14,10 @@ class Customer(models.Model):
 
 
 class GolfGear(models.Model):
+    '''
+    Table to host all data on products
+    Current and newly added
+    '''
     name = models.CharField(max_length=100, null=True)
     price = models.FloatField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
@@ -27,6 +34,12 @@ class GolfGear(models.Model):
         return url
 
 class Order(models.Model):
+    '''
+    Table to store all orders
+    Helps to render data on pages
+    in regards to shipping, basket totals
+    etc
+    '''
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
     order_date = models.DateTimeField(auto_now_add=True)
     done = models.BooleanField(default=False, null=True, blank=False)
@@ -55,6 +68,10 @@ class Order(models.Model):
         return total
 
 class OrderItem(models.Model):
+    '''
+    Table to host the individual items within orders
+    Helps in deriving totals for orders
+    '''
     golfgear = models.ForeignKey(GolfGear, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
@@ -67,6 +84,9 @@ class OrderItem(models.Model):
 
 
 class DeliveryAddress(models.Model):
+    '''
+    Table to host delivery details of orders made
+    '''
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     address = models.CharField(max_length=100, null=True)
@@ -80,6 +100,9 @@ class DeliveryAddress(models.Model):
         return self.address 
 
 class SubscribedUsers(models.Model):
+    '''
+    Table to host data on customers registered for newsletter
+    '''
     email = models.CharField(unique=True, max_length=50, null=True, blank=True)
     name = models.CharField(max_length=50, null=True, blank=True)
 

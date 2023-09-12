@@ -23,7 +23,6 @@ urlpatterns = [
 	path('process_order/', views.processOrder, name="process_order"),
     path("robots.txt",TemplateView.as_view(template_name="Kev_Project5/robots.txt", content_type="text/plain")),
 	path('newsletter/', views.newsletter, name='newsletter'),
-    path('validate/', views.validate_email, name='validate_email'),
 	path('add_product/', views.add_product, name='add_product'),
 	path('update_product/<int:pk>/', UpdateProduct.as_view(), name='update_product'),
 	path('delete_product/<int:pk>/', views.DeleteProduct.as_view(), name='delete_product'),
