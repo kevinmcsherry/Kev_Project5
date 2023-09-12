@@ -145,6 +145,13 @@ There are many features included in the shopping list application.
 
     ![Web Page view](/media/confirm_page.png)
 
+- __Custom 'Page not found'__
+    - A very important piece of functionality for user friendliness is the presence of a custom 'Page not found' page.  Without this, not only does it look really unprofessional, its very confusing for any user.  I created my own which clearly explains the issue and helps redirect the user back to the site without any confusion.
+
+    <br>
+
+    ![Web Page view]()
+
 
 # Features left to implement
 
