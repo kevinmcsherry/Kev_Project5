@@ -1,3 +1,6 @@
+                                            
+![Web Page view](/media/gg_home_page.png)
+
 # README Table of contents
 
   - [**Project 5 Ecommerce - Golf Gear - Introduction**](#project-5-ecommerce---golf-gear---introduction)
@@ -45,8 +48,21 @@ If the logged user can not make up thier mind and wish to log off and have a thi
 We accept payment via Paypal or Credit Card!
 Enjoy the Site!
 
+# User Goals
+ - Visit and view a gallery of Golf Apparel and accessories 
+ - Become a member of the site
+ - Purchase golfing items
+ - Signup to newletter
+ - Provide feedback
+ - Follow our growth journey
 
-![Web Page view](/media/gg_home_page.png)
+ # Business Goals
+ - Display numerous and diverse golfing apparel and accessorie options
+ - Allow for ease of purchase
+ - Gain more users via enjoyable experience and references
+ - Have customers sign up and revisit
+ - Have users signup for newsletter
+
 
 # Agile Methodology/Framework
 - A big part of this project was to think ahead and plan, design, prioritise and timebox tasks.  It was a great way to make me think about smaller chunks of work and plan out my project.
