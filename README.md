@@ -254,12 +254,53 @@ I did attempt to add this functionality, it was very complicated to decipher the
 
 # Deployment
 
+### Local Deployment
+- Requirements
+     - An IDE of your choice such as GITPOD
+     - You can clone the repository 
+     ```
+    git clone https://github.com/kevinmcsherry/Kev_Project5
+    ```
+    - Open the IDE and choose the base directory 
+    - Install Django 
+    ```
+    pip3 install 'django4'
+    ```
+    - Make sure to install Django Allauth
+    ```
+    pip3 install django-allauth==0.41.0
+    ```
+    Run the project with your chosen method. You can drop index.html into a web browser and it should run fine, open a local port and access it or, if you have python installed, run it on an server via manage.py file with python with a command such as:
+    ```
+    python3 manage.py runserver
+    ```
+    - Run and enjoy!
+
+## Github Deployment
+### Github Preparation
+
+**Requirements:**
+- A free GitHub account.
+
+### Github Instructions
+1. Log in to your GitHub account.
+navigate to [https://github.com/kevinmcsherry/Kev_Project5](https://github.com/kevinmcsherry/Kev_Project5).
+1. You can set up your own repository and copy or clone it, or you fork the repository.
+2. `git add`, `git commit` and `git push` to a GitHub repository, if necessary.
+3. GitHub pages will update from the master branch by default.
+4. Go to the **Settings** page of the repository.
+5. Scroll down to the **Github Pages** section.
+7. Select the Master Branch as the source and **Confirm** the selection.
+8. Wait a minute or two and it should be live for viewing.
+
+### Heroku
+
 - In order to deploy my project and make it available to run via a visual program, I needed to synch my GitHub project through Heroku.  I had to sign up for a new account, add credentials, link to the correct repository and add some settings to allow for seemless deployment.  One thing I made sure to do was set to automatic deploys, which meant each time I pushed through gitpod, these changes would then render to the new GUI.
 - In order to allow the ability for users to create new products and add images, I had to set my project up with AWS and S3.  I created an account in Amazon and set up the project user groups, accesses and rights to allow users to view and add different images.
 - I set up my static and media files on S3 to store all files required for project.
 - I added all my product images to the media folder in the S3 account.  I also added my static files for the sites usability. 
 - My project is deployed via Heroku.  My live published site - https://git.heroku.com/golfgear.git
-- My GitHub repository is housed here - https://github.com/kevinmcsherry/Kev_Project5
+
 
 <br>
 
