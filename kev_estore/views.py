@@ -287,7 +287,11 @@ def product_management(request):
     page
     '''
     context = {}
-    return render(request, 'kev_estore/product_management.html', context)
+    if request.user.is_superuser:
+        return render(request, 'kev_estore/product_management.html', context)
+    else:      
+        return redirect('login')
+        
 
 
 def add_product(request):
@@ -299,14 +303,17 @@ def add_product(request):
     Displays new product info
     on product page
     '''
-    if request.POST:
-        form = AddProductForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-        return redirect(product_management)      
-        redirect_authenticated_user = True
-        success_message = "Product Added!" 
-    return render(request, 'kev_estore/add_product.html', {'form' : AddProductForm})
+    if request.user.is_superuser:
+        if request.POST:
+            form = AddProductForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+            return redirect(product_management)      
+            redirect_authenticated_user = True
+            success_message = "Product Added!" 
+        return render(request, 'kev_estore/add_product.html', {'form' : AddProductForm})
+    else:
+        return redirect('login')
 
 class UpdateProduct(SuccessMessageMixin, UpdateView):
     '''
@@ -326,7 +333,6 @@ class UpdateProduct(SuccessMessageMixin, UpdateView):
     redirect_authenticated_user = True
     success_message = "Item updated successfully"
     success_url = reverse_lazy('product_management')
-    
 
 class DeleteProduct(SuccessMessageMixin, DeleteView):
     '''
