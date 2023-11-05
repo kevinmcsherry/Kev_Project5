@@ -22,6 +22,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('kev_estore.urls')),
+    path('', include('users.urls')),
 ]
 
 handler404 = "kev_estore.views.page_not_found"
