@@ -8,6 +8,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from .models import *
+from users.models import Customer
 from django.db import models
 from django.http import JsonResponse
 import json
