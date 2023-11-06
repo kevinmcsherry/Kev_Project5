@@ -18,11 +18,12 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 from .models import Customer
-from .models import SubscribedUsers
+from contact.models import SubscribedUsers
 from django.core.mail import send_mail
 from django.conf import settings
 import re
 from kev_estore.forms import AddProductForm
+from checkout.models import Order, OrderItem
 
 
 class CreateAccount(SuccessMessageMixin, FormView):
@@ -41,14 +42,11 @@ class CreateAccount(SuccessMessageMixin, FormView):
     success_message = "Account created successfully!"
     success_url = reverse_lazy('golfgear')
 
-
     def form_valid(self, form):
         user = form.save()
         if user is not None:
             login(self.request, user)
         return super(CreateAccount, self).form_valid(form)
-
-        
 
     @receiver(post_save, sender=User)
     def create_or_update_customer(sender, instance, created, **kwargs):

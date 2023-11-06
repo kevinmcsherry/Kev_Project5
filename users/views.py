@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import login, logout
+from django.urls import reverse_lazy
 
 
 # Create your views here.

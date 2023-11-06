@@ -52,3 +52,19 @@ class OrderItem(models.Model):
     def get_total(self):
 		    total = self.golfgear.price * self.quantity
 		    return total
+
+class DeliveryAddress(models.Model):
+    '''
+    Table to host delivery details of orders made
+    '''
+    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+    address = models.CharField(max_length=100, null=True)
+    city = models.CharField(max_length=100, null=True)
+    county = models.CharField(max_length=100, null=True)
+    country = models.CharField(max_length=100, null=True)
+    post_code = models.CharField(max_length=100, null=True)
+    add_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__ (self):
+        return self.address 

@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'storages',
     'kev_estore',
     'users',
+    'checkout',
+    'contact',
 
     
 ]
