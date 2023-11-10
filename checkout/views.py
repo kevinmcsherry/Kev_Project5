@@ -14,7 +14,7 @@ def purchase_complete(request):
     Link to purchase complete page
     '''
     context = {}
-    return render(request, 'kev_estore/purchase_complete.html', context)
+    return render(request, 'purchase_complete.html', context)
 
 
 def basket(request):
@@ -35,7 +35,7 @@ def basket(request):
         basketItems = order['get_basket_num']
 
     context ={'items':items, 'order':order, 'basketItems':basketItems}
-    return render(request, 'kev_estore/basket.html', context)
+    return render(request, 'basket.html', context)
 
 
 def checkout(request):
@@ -57,7 +57,7 @@ def checkout(request):
         basketItems = order['get_basket_num']
 
     context ={'items':items, 'order':order, 'basketItems':basketItems}
-    return render(request, 'kev_estore/checkout.html', context)
+    return render(request, 'checkout.html', context)
 
 
 def processOrder(request):

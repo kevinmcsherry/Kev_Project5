@@ -1,26 +1,11 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.views.generic.edit import UpdateView, DeleteView
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.forms import UserCreationForm, forms
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from django.contrib.auth import login, logout
 from checkout.models import GolfGear
-from users.models import Customer
-from django.db import models
 from django.http import JsonResponse
 import json
-import datetime
-from django import forms
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from django.contrib.auth.models import User
-from contact.models import SubscribedUsers
-from django.core.mail import send_mail
-from django.conf import settings
-import re
 from kev_estore.forms import AddProductForm
 from checkout.models import Order, OrderItem
 

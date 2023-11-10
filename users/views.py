@@ -24,7 +24,7 @@ class CreateAccount(SuccessMessageMixin, FormView):
     with successful message.
     On error, class will return user to the 'create account' form.
     '''
-    template_name = 'kev_estore/create_account.html'
+    template_name = 'create_account.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
     success_message = "Account created successfully!"
@@ -57,7 +57,7 @@ class Login(SuccessMessageMixin, LoginView):
     to the main Website product page
     if not recognised, return to Login page
     '''
-    template_name = 'kev_estore/login.html'
+    template_name = 'login.html'
     fields = '__all__'
     redirect_authenticated_user = True
     success_message = "Login successful!"
@@ -71,7 +71,7 @@ class Logout(LogoutView):
     Recieves a logout instruction
     returns user to the Logout page
     '''
-    template_name = 'kev_estore/logout.html'
+    template_name = 'logout.html'
     redirect_authenticated_user = True
     success_message = "Logout successful!"
 
@@ -81,4 +81,4 @@ def logout(request):
     Link to Logout page
     '''
     context = {}
-    return render(request, 'kev_estore/logout.html', context)
+    return render(request, 'logout.html', context)
