@@ -4,6 +4,7 @@ from kev_estore.models import GolfGear
 
 # Create your models here.
 
+
 class Order(models.Model):
     '''
     Table to store all orders
@@ -25,7 +26,6 @@ class Order(models.Model):
         orderitems = self.orderitem_set.all()
         return shipping
 
-
     @property
     def get_basket_num(self):
         orderitems = self.orderitem_set.all()
@@ -37,6 +37,7 @@ class Order(models.Model):
         orderitems = self.orderitem_set.all()
         total = sum([item.get_total for item in orderitems])
         return total
+
 
 class OrderItem(models.Model):
     '''
@@ -52,6 +53,7 @@ class OrderItem(models.Model):
     def get_total(self):
 		    total = self.golfgear.price * self.quantity
 		    return total
+
 
 class DeliveryAddress(models.Model):
     '''

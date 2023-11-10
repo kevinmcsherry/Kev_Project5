@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import *
+from checkout.models import Order, OrderItem, DeliveryAddress
 # Register your models here.
 
 admin.site.register(Order)

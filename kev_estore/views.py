@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm, forms
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.contrib.auth import login, logout
-from .models import *
+from checkout.models import GolfGear
 from users.models import Customer
 from django.db import models
 from django.http import JsonResponse
@@ -32,19 +32,6 @@ def home(request):
     context = {}
     return render(request, 'kev_estore/home_page.html', context)
 
-def logout(request):
-    '''
-    Link to Logout page
-    '''
-    context = {}
-    return render(request, 'kev_estore/logout.html', context)
-
-def purchase_complete(request):
-    '''
-    Link to purchase complete page
-    '''
-    context = {}
-    return render(request, 'kev_estore/purchase_complete.html', context)
 
 def update_golfgear(request):
     '''
@@ -57,6 +44,7 @@ def update_golfgear(request):
     context = {'golfgears':golfgears}
     return render(request, 'kev_estore/update_golfgear.html', context)
 
+
 def delete_golfgear(request):
     '''
     Recieves the instruction from user
@@ -67,6 +55,7 @@ def delete_golfgear(request):
     golfgears = GolfGear.objects.all()
     context = {'golfgears':golfgears}
     return render(request, 'kev_estore/golfgear_confirm_delete.html', context)
+
 
 def golfgear(request):
     '''
@@ -91,55 +80,13 @@ def golfgear(request):
     return render(request, 'kev_estore/golfgear.html', context)
 
 
-def basket(request):
-    '''
-    Recieves user information
-    Basket will set number based on 
-    previous visit if any.
-    If new, basket will be reset.
-    '''
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, done=False)
-        items = order.orderitem_set.all()
-        basketItems = order.get_basket_num
-    else:
-        items = []
-        order = {'get_basket_total':0, 'get_basket_num':0, 'shipping':False}
-        basketItems = order['get_basket_num']
-
-    context ={'items':items, 'order':order, 'basketItems':basketItems}
-    return render(request, 'kev_estore/basket.html', context)
-
-
-def checkout(request):
-    '''
-    Recieves user information
-    Recieves basket item count
-    Recieves basket total
-    Renders checkout page with details
-    of order
-    '''
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, done=False)
-        items = order.orderitem_set.all()
-        basketItems = order.get_basket_num
-    else:
-        items = []
-        order = {'get_basket_total':0, 'get_basket_num':0, 'shipping':False}
-        basketItems = order['get_basket_num']
-
-    context ={'items':items, 'order':order, 'basketItems':basketItems}
-    return render(request, 'kev_estore/checkout.html', context)
-
-
 def page_not_found(request, exception):
     '''
     Triggers custom page not found
     when an unrecognised page is navigated
     '''
     return render(request, 'kev_estore/page_not_found.html', status=404)
+
 
 def updateItem(request):
     '''
@@ -177,44 +124,6 @@ def updateItem(request):
 
     return JsonResponse('Item was added', safe=False)
 
-def processOrder(request):
-    '''
-    Recieves details of order
-    Once transaction is completed via
-    PayPal, stores data in database
-    '''
-    order_id = datetime.datetime.now().timestamp()
-    data = json.loads(request.body)
-
-    if request.user.is_authenticated:
-	    customer = request.user.customer
-    order, created = Order.objects.get_or_create(customer=customer, done=False)
-    total = (data['form']['total'])
-    order.order_id = order_id
-    order.done = True
-    order.save()
-
-    if order.shipping == True:
-        DeliveryAddress.objects.create(
-        customer=customer,
-        order=order,
-        address=data['shipping']['address'],
-        city=data['shipping']['city'],
-        county=data['shipping']['county'],
-        country=data['shipping']['country'],
-        post_code=data['shipping']['postalcode'],
-        )
-    else:
-        print('User is not logged in')
-    return JsonResponse('Payment Complete!', safe=False)
-
-def newsletter(request):
-    '''
-    Link to Newsletter signup
-    form
-    '''
-    context = {}       
-    return render(request, 'kev_estore/newsletter.html')
 
 def product_management(request):
     '''
@@ -227,7 +136,6 @@ def product_management(request):
     else:      
         return redirect('login')
         
-
 
 def add_product(request):
     '''
@@ -250,6 +158,7 @@ def add_product(request):
     else:
         return redirect('login')
 
+
 class UpdateProduct(SuccessMessageMixin, UpdateView):
     '''
     Recieves instruction to update
@@ -268,6 +177,7 @@ class UpdateProduct(SuccessMessageMixin, UpdateView):
     redirect_authenticated_user = True
     success_message = "Item updated successfully"
     success_url = reverse_lazy('product_management')
+
 
 class DeleteProduct(SuccessMessageMixin, DeleteView):
     '''

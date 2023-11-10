@@ -22,6 +22,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('kev_estore.urls')),
+    path('', include('contact.urls')),
+    path('', include('checkout.urls')),
     path('', include('users.urls')),
 ]
 

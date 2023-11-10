@@ -5,7 +5,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 from users.models import Customer
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.views.generic.edit import FormView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
@@ -74,3 +74,11 @@ class Logout(LogoutView):
     template_name = 'kev_estore/logout.html'
     redirect_authenticated_user = True
     success_message = "Logout successful!"
+
+
+def logout(request):
+    '''
+    Link to Logout page
+    '''
+    context = {}
+    return render(request, 'kev_estore/logout.html', context)

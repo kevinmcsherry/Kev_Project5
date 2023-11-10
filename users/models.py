@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Customer(models.Model):
     '''
     Table to host data of all registered customers
@@ -11,4 +12,3 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
-

@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class SubscribedUsers(models.Model):
     '''
     Table to host data on customers registered for newsletter
