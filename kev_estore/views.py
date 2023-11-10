@@ -17,50 +17,12 @@ from django import forms
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
-from .models import Customer
 from contact.models import SubscribedUsers
 from django.core.mail import send_mail
 from django.conf import settings
 import re
 from kev_estore.forms import AddProductForm
 from checkout.models import Order, OrderItem
-
-
-class CreateAccount(SuccessMessageMixin, FormView):
-    '''
-    Creates a new account by receiving the parameters : -
-    Username
-    Password
-    Password(confirmed)
-    On success, class will bring user to main page of Website
-    with successful message.
-    On error, class will return user to the 'create account' form.
-    '''
-    template_name = 'kev_estore/create_account.html'
-    form_class = UserCreationForm
-    redirect_authenticated_user = True
-    success_message = "Account created successfully!"
-    success_url = reverse_lazy('golfgear')
-
-    def form_valid(self, form):
-        user = form.save()
-        if user is not None:
-            login(self.request, user)
-        return super(CreateAccount, self).form_valid(form)
-
-    @receiver(post_save, sender=User)
-    def create_or_update_customer(sender, instance, created, **kwargs):
-        """Create or update the Customer"""
-        if created:
-            cust_name = str(instance)
-            Customer.objects.create(user=instance, name=cust_name, email=cust_name + "1979@gmail.com")
-        instance.customer.save()
-    
-
-    def state(self, *args, **kwargs):
-        if self.request.user.is_authenticated:
-            return redirect('golfgear')
-        return super(CreateAccount, self).get(*args, **kwargs)
 
 
 def home(request):

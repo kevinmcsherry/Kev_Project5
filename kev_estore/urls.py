@@ -1,5 +1,4 @@
 from django.urls import path
-from .views import CreateAccount
 from .views import page_not_found
 from .views import UpdateProduct, DeleteProduct, add_product, delete_golfgear
 from django.contrib.auth.views import LogoutView
@@ -10,7 +9,6 @@ from . import views
 
 urlpatterns = [
         #Leave as empty string for base url
-    path('create_account/', CreateAccount.as_view(), name='create_account'),
 	path('', views.home, name="home"),
 	path('checkout/', views.checkout, name="checkout"),
 	path('golfgear/', views.golfgear, name="golfgear"),
