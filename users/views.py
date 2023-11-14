@@ -13,8 +13,8 @@ from django.contrib.auth import login
 
 # Create your views here.
 
-
 class CreateAccount(SuccessMessageMixin, FormView):
+
     '''
     Creates a new account by receiving the parameters : -
     Username
@@ -24,10 +24,11 @@ class CreateAccount(SuccessMessageMixin, FormView):
     with successful message.
     On error, class will return user to the 'create account' form.
     '''
+
     template_name = 'create_account.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
-    success_message = "Account created successfully!"
+    success_message = 'Account created successfully!'
     success_url = reverse_lazy('golfgear')
 
     def form_valid(self, form):
@@ -37,13 +38,20 @@ class CreateAccount(SuccessMessageMixin, FormView):
         return super(CreateAccount, self).form_valid(form)
 
     @receiver(post_save, sender=User)
-    def create_or_update_customer(sender, instance, created, **kwargs):
+    def create_or_update_customer(
+        sender,
+        instance,
+        created,
+        **kwargs
+        ):
         """Create or update the Customer"""
+
         if created:
             cust_name = str(instance)
-            Customer.objects.create(user=instance, name=cust_name, email=cust_name + "1979@gmail.com")
+            Customer.objects.create(user=instance, name=cust_name,
+                                    email=cust_name + '1979@gmail.com')
         instance.customer.save()
-    
+
     def state(self, *args, **kwargs):
         if self.request.user.is_authenticated:
             return redirect('golfgear')
@@ -51,34 +59,39 @@ class CreateAccount(SuccessMessageMixin, FormView):
 
 
 class Login(SuccessMessageMixin, LoginView):
+
     '''
     Recieve login details from registered user
     if user details are recognised, bring them
     to the main Website product page
     if not recognised, return to Login page
     '''
+
     template_name = 'login.html'
     fields = '__all__'
     redirect_authenticated_user = True
-    success_message = "Login successful!"
-    
+    success_message = 'Login successful!'
+
     def get_success_url(self):
         return reverse_lazy('golfgear')
 
 
 class Logout(LogoutView):
+
     '''
     Recieves a logout instruction
     returns user to the Logout page
     '''
+
     template_name = 'logout.html'
     redirect_authenticated_user = True
-    success_message = "Logout successful!"
+    success_message = 'Logout successful!'
 
 
 def logout(request):
     '''
     Link to Logout page
     '''
+
     context = {}
     return render(request, 'logout.html', context)

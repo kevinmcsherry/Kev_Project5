@@ -2,10 +2,12 @@ from django.db import models
 
 
 class GolfGear(models.Model):
+
     '''
     Table to host all data on products
     Current and newly added
     '''
+
     name = models.CharField(max_length=100, null=True)
     price = models.FloatField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
@@ -16,9 +18,7 @@ class GolfGear(models.Model):
     @property
     def imageURL(self):
         try:
-                url = self.image.url
+            url = self.image.url
         except:
-                url = ''
+            url = ''
         return url
-
-
