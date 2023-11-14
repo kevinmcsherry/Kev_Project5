@@ -36,8 +36,9 @@ DEBUG = True
 development = DEBUG
 
 
-
-ALLOWED_HOSTS = ['8000-kevinmcsher-kevproject5-f8obl930y4d.ws-eu106.gitpod.io', 'golfgear-ffe6e55d1466.herokuapp.com']
+ALLOWED_HOSTS = \
+    ['8000-kevinmcsher-kevproject5-f8obl930y4d.ws-eu106.gitpod.io',
+     'golfgear-ffe6e55d1466.herokuapp.com']
 
 
 # Application definition
@@ -55,7 +56,6 @@ INSTALLED_APPS = [
     'checkout',
     'contact',
 
-    
 ]
 
 MIDDLEWARE = [
@@ -96,38 +96,32 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#if development:
-   # DATABASES = {
-    #    'default': {
-    #        'ENGINE': 'django.db.backends.sqlite3',
-    #        'NAME': BASE_DIR / 'db.sqlite3',
-    #    }
-    #}
-#else:
-    # The actual database we want to use for production
+# if development:
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+# }
+# else:
+# The actual database we want to use for production
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+AUTH_PASSWORD_VALIDATORS = \
+    [{'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
+      },
+     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'
+      },
+     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'
+      },
+     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'
+      }]
 
 
 # Internationalization

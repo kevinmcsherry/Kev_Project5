@@ -22,7 +22,7 @@ def purchase_complete(request):
 def basket(request):
     '''
     Recieves user information
-    Basket will set number based on 
+    Basket will set number based on
     previous visit if any.
     If new, basket will be reset.
     '''
@@ -89,7 +89,7 @@ def processOrder(request):
         order.done = True
         order.save()
 
-    if order.shipping == True:
+    if order.shipping is True:
         DeliveryAddress.objects.create(
             customer=customer,
             order=order,
@@ -107,13 +107,13 @@ def processOrder(request):
 def updateItem(request):
     '''
     This function is to allow user
-    to add or subtract the quantity 
+    to add or subtract the quantity
     of items in basket for products
     present.
     It will recieve items from basket,
     display each product, item counts
     and overall cost amount.
-    The user can use the arrow keys to 
+    The user can use the arrow keys to
     increase or decrease item amounts.
     Will delete the item if count is <0.
     '''
@@ -125,10 +125,10 @@ def updateItem(request):
     customer = request.user.customer
     golfgear = GolfGear.objects.get(id=golfgearId)
     (order, created) = Order.objects.get_or_create(customer=customer,
-            done=False)
+                                                   done=False)
 
     (orderItem, created) = OrderItem.objects.get_or_create(order=order,
-            golfgear=golfgear)
+                                                           golfgear=golfgear)
 
     if action == 'add':
         orderItem.quantity = orderItem.quantity + 1

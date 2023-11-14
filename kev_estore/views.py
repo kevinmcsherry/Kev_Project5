@@ -22,7 +22,7 @@ def home(request):
 def update_golfgear(request):
     '''
     Recieves the instruction from user
-    to update product from the product management 
+    to update product from the product management
     page
     Brings user to update product form
     '''
@@ -35,7 +35,7 @@ def update_golfgear(request):
 def delete_golfgear(request):
     '''
     Recieves the instruction from user
-    to delete product from the product management 
+    to delete product from the product management
     page
     Brings user to delete product form
     '''
@@ -83,13 +83,13 @@ def page_not_found(request, exception):
 def updateItem(request):
     '''
     This function is to allow user
-    to add or subtract the quantity 
+    to add or subtract the quantity
     of items in basket for products
     present.
     It will recieve items from basket,
     display each product, item counts
     and overall cost amount.
-    The user can use the arrow keys to 
+    The user can use the arrow keys to
     increase or decrease item amounts.
     Will delete the item if count is <0.
     '''
@@ -101,10 +101,10 @@ def updateItem(request):
     customer = request.user.customer
     golfgear = GolfGear.objects.get(id=golfgearId)
     (order, created) = Order.objects.get_or_create(customer=customer,
-            done=False)
+                                                   done=False)
 
     (orderItem, created) = OrderItem.objects.get_or_create(order=order,
-            golfgear=golfgear)
+                                                           golfgear=golfgear)
 
     if action == 'add':
         orderItem.quantity = orderItem.quantity + 1
@@ -206,8 +206,8 @@ class DeleteProduct(SuccessMessageMixin, DeleteView):
         request,
         *args,
         **kwargs
-        ):
+         ):
 
         messages.success(self.request, self.success_message)
         return super(DeleteProduct, self).delete(request, *args,
-                **kwargs)
+                                                 **kwargs)

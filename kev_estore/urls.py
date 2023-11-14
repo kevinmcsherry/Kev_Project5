@@ -8,7 +8,7 @@ urlpatterns = [  # Leave as empty string for base url
     path('golfgear/', views.golfgear, name='golfgear'),
     path('robots.txt',
          TemplateView.as_view(template_name='Kev_Project5/robots.txt',
-         content_type='text/plain')),
+                              content_type='text/plain')),
     path('add_product/', views.add_product, name='add_product'),
     path('update_product/<int:pk>/', UpdateProduct.as_view(),
          name='update_product'),
