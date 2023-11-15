@@ -37,7 +37,7 @@ development = DEBUG
 
 
 ALLOWED_HOSTS = \
-    ['8000-kevinmcsher-kevproject5-f8obl930y4d.ws-eu106.gitpod.io',
+    ['8000-kevinmcsher-kevproject5-d1zyhat00qg.ws-eu106.gitpod.io',
      'golfgear-ffe6e55d1466.herokuapp.com']
 
 
