@@ -304,10 +304,17 @@ navigate to [https://github.com/kevinmcsherry/Kev_Project5](https://github.com/k
 
 <br>
 
+### Credentials
+
 # Golf Gear Super User
+
 - My Admin user Credentials for the Golf Gear app : - **Username** - Kevin  **Password** - AvaandMia1
 
 <br>
+
+# PayPal buyer account
+
+- **Username** - kejesab407@gameszox.com  **Password** - Golfgear123
 
 # Credits
 
