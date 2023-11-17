@@ -58,10 +58,10 @@ def golfgear(request):
         customer = request.user.customer
         (order, created) = \
             Order.objects.get_or_create(customer=customer, done=False)
-        items = order.orderitem_set.all()
+        # items = order.orderitem_set.all()
         basketItems = order.get_basket_num
     else:
-        items = []
+        # items = []
         order = {'get_basket_total': 0, 'get_basket_num': 0,
                  'shipping': False}
         basketItems = order['get_basket_num']
@@ -150,8 +150,8 @@ def add_product(request):
             if form.is_valid():
                 form.save()
             return redirect(product_management)
-            redirect_authenticated_user = True
-            success_message = 'Product Added!'
+            # redirect_authenticated_user = True
+            # success_message = 'Product Added!'
         return render(request, 'kev_estore/add_product.html',
                       {'form': AddProductForm})
     else:

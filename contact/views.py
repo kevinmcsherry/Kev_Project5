@@ -9,5 +9,4 @@ def newsletter(request):
     Link to Newsletter signup
     form
     '''
-    context = {}
     return render(request, 'newsletter.html')

@@ -18,7 +18,7 @@ class Order(models.Model):
                                  blank=True, null=True)
     order_date = models.DateTimeField(auto_now_add=True)
     done = models.BooleanField(default=False, null=True, blank=False)
-    order_id = models.CharField(max_length=10, null=True)
+    order_id = models.CharField(max_length=30, null=True)
 
     def __str__(self):
         return str(self.id)
@@ -26,7 +26,7 @@ class Order(models.Model):
     @property
     def shipping(self):
         shipping = True
-        orderitems = self.orderitem_set.all()
+        self.orderitem_set.all()
         return shipping
 
     @property

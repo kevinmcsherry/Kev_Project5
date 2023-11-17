@@ -84,7 +84,7 @@ def processOrder(request):
         customer = request.user.customer
         (order, created) = \
             Order.objects.get_or_create(customer=customer, done=False)
-        total = data['form']['total']
+        data['form']['total']
         order.order_id = order_id
         order.done = True
         order.save()
