@@ -167,7 +167,8 @@ There are many features included in the shopping list application.
 
 - __Purchase Confirmation and Feedback Page__
     - Once a user completes a purchase, the site will provide a confirmation page and an opportunity to provide feedback of experience.
-    -**Since deploying to Heroku, the confirmation page is not working, but the amounts are still going through on Paypal accounts**
+    - The customers basket will be reset to empty and all cost numbers reset to zero also.
+    - Money will be removed from the buyers account and added to the business account.
 
     <br>
 
@@ -304,10 +305,17 @@ navigate to [https://github.com/kevinmcsherry/Kev_Project5](https://github.com/k
 
 <br>
 
+### Credentials
+
 # Golf Gear Super User
+
 - My Admin user Credentials for the Golf Gear app : - **Username** - Kevin  **Password** - AvaandMia1
 
 <br>
+
+# PayPal buyer account
+
+- **Username** - kejesab407@gameszox.com  **Password** - Golfgear123
 
 # Credits
 
