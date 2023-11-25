@@ -6,10 +6,12 @@ from django.http import JsonResponse
 from django.contrib import messages
 from kev_estore.models import GolfGear
 from checkout.models import DeliveryAddress
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 
+@login_required(login_url='login')
 def purchase_complete(request):
     '''
     Link to purchase complete page
@@ -19,6 +21,7 @@ def purchase_complete(request):
     return render(request, 'purchase_complete.html', context)
 
 
+@login_required(login_url='login')
 def basket(request):
     '''
     Recieves user information
@@ -44,6 +47,7 @@ def basket(request):
     return render(request, 'basket.html', context)
 
 
+@login_required(login_url='login')
 def checkout(request):
     '''
     Recieves user information
