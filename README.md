@@ -128,6 +128,8 @@ There are many features included in the shopping list application.
     - There is a create account function to allow users without login to create one and use site straight away.
     - Payment methods via PayPal will be secured to Logged in user, but the payment details will be available to the user and stored for next visit
     - SuperUser operations only visible to SuperUsers and not to normal customers.
+    - Pages that require a login can only be viewed when a user is logged in... if attempted, they will be brought back to login page
+    - Pages that require admin login can only be viewed by an admin and once again, if access attempted, the user will be brought back to current logged in page (current page)
 
 <br>
 
