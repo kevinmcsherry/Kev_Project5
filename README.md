@@ -12,10 +12,16 @@
   - [**UI Designs**](#ui-designs)
 
 
+  - [**Apps**](#apps)
+
+
   - [**Features**](#features)
 
   
   - [**Features to implement**](#features-left-to-implement)
+
+
+  - [**Custom Logic**](#custom-logic)
 
 
   - [**Testing**](#testing)
@@ -91,6 +97,25 @@ Enjoy the Site!
 
 - I also put together a mockup of Facebook page, this would in theory be an advertising tool to get more visibility and visitors.
 ![Web Page view](/media/golfgear_facebook.jpg)
+
+<br>
+
+# Apps
+
+**On previous submission I had all logic in one entire app - I have now split them down into logical apps to allow for better organisation and also to allow for future additions to the site**
+
+- __users__
+    - The users app is to host and utilize all data in relation to the users - new and current.  
+
+- __kev_estore__
+    - kev_estore is the main product area App.  In this app belongs the main product page, where users can begin thier shopping experience.
+    Within this app, it also contains the product management functionality - this allows an admin user to update, add and remove product items.
+
+- __checkout__
+    - The checkout app is where all the shopping, basket and purchasing happens - probably the core to the logic of the entire website.
+
+- __contact__
+    - The contact app is where the logic is housed for users that have prescribed to our site via newsletter
 
 
 # Features
@@ -199,7 +224,15 @@ I did attempt to add this functionality, it was very complicated to decipher the
 
 - An additional feature that would make the site more compelling is to have a history section for registered users.  I would like users to see all of thier older orders.  Currently the basket will remain in-tact for previous users visiting and will still hold old information... but not historical data.
 
-## Testing
+- A wishlist - I think a good addition to the site would be that of a wishlist where a user can select an item from the product range that they like, but are not ready to purchase... this would allow a user to come back and then visit the products they had identified to perhaps purchase... this is also good for future growth to adapt ML logic to suggest to users some items they may like going forward.
+
+
+# Custom Logic
+ 
+ - Some feedback which was recieved was that it was not different enough from Boutique Ado - but I can honestly say that the logic used is completely original and authentic - I unfortunately did not get the chance to carry out the Boutique Ado exmaple.  
+ - I have features that Boutique Ado does not, and the project flows differently... I would also point out that the coding standards and layout is not to the level of the project example as I tried to keep it as authentic.
+
+# Testing
 
 - There was a lot of testing throughout this project.  Each and every small change was tested as I went.  I wanted to avoid any last minute bulk testing and therefreo refactoring, so testing as I developed my way through was how I approached this.
 <br>
